@@ -32,6 +32,7 @@ namespace BLL
                 return Name + ":" + JW;
             }
         }
+
         private List<Station> stations = new List<Station>();
         private double rad(double d)
         {
@@ -49,6 +50,10 @@ namespace BLL
             s = Math.Round(s * 10000) / 10000;
             return s;
         }
+
+        /// <summary>
+        /// 此处改成读取数据库的鬼东西
+        /// </summary>
         private void FullStations()
         {
             //stations.Add(new Station("北京南", "116.385153,39.872198"));

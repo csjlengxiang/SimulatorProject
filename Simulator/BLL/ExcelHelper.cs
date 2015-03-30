@@ -33,9 +33,9 @@ namespace BLL
 
                 return ds;
             }
-            catch
+            catch (Exception e)
             {
-                return null;
+                throw e;
             }
         }
     }

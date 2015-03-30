@@ -230,7 +230,7 @@ namespace BLL
 
         private void IntranetReceive(byte[] data)
         {
-            Console.WriteLine(data.Length.ToString() + " " + Encoding.UTF8.GetString(data));
+            //Console.WriteLine(data.Length.ToString() + " " + Encoding.UTF8.GetString(data));
             backgroundService.Oper(Encoding.UTF8.GetString(data));
         }
         private void NotIntraneteceive(byte[] data)
@@ -239,7 +239,7 @@ namespace BLL
             //调用短信接口完事...
 
             string str = Encoding.UTF8.GetString(data);
-            mess(str);
+            LogService.Mess(str);
             udpService.Send(str);
 
             /*
@@ -253,22 +253,6 @@ namespace BLL
             else if (tp == "破锁")
                 sendService.sendOnce(sjh, ch + " 的锁 " + sh + " 损坏，请检查锁状态");
              */
-        }
-
-        public static void mess(string data)
-        {
-            try
-            {
-                if (!Directory.Exists(@"c:\sendMessage"))
-                    Directory.CreateDirectory(@"c:\sendMessage");
-                StreamWriter sw = File.AppendText(@"c:\sendMessage\" + DateTime.Now.ToString("yyyyMMdd") + ".txt");
-                sw.WriteLine("【" + DateTime.Now.ToString() + "】" + data);
-                sw.Close();
-            }
-            catch (Exception ex)
-            {
-
-            }
         }
     }
 }

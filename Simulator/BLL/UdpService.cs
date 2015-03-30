@@ -40,9 +40,9 @@ namespace BLL
                                 else if (tp == "破锁")
                                     sendService.sendOnce(sjh, ch + " 的锁 " + sh + " 损坏，请检查锁状态");
                             }
-                            catch
+                            catch (Exception e)
                             {
-
+                                Console.WriteLine(e.Message);
                             }
                         }
                     

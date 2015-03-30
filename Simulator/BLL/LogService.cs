@@ -19,9 +19,9 @@ namespace BLL
                 sw.WriteLine("【" + DateTime.Now.ToString() + "】" + data);
                 sw.Close();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-
+                throw e;
             }
         }
     }
