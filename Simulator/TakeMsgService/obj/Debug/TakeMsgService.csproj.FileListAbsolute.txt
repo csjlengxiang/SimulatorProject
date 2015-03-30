@@ -1,0 +1,12 @@
+C:\Users\csj\Desktop\Simulator\TakeMsgService\bin\Debug\TakeMsgService.exe.config
+C:\Users\csj\Desktop\Simulator\TakeMsgService\bin\Debug\TakeMsgService.exe
+C:\Users\csj\Desktop\Simulator\TakeMsgService\bin\Debug\TakeMsgService.pdb
+C:\Users\csj\Desktop\Simulator\TakeMsgService\bin\Debug\BLL.dll
+C:\Users\csj\Desktop\Simulator\TakeMsgService\bin\Debug\DAL.dll
+C:\Users\csj\Desktop\Simulator\TakeMsgService\bin\Debug\Model.dll
+C:\Users\csj\Desktop\Simulator\TakeMsgService\bin\Debug\BLL.pdb
+C:\Users\csj\Desktop\Simulator\TakeMsgService\bin\Debug\DAL.pdb
+C:\Users\csj\Desktop\Simulator\TakeMsgService\bin\Debug\Model.pdb
+C:\Users\csj\Desktop\Simulator\TakeMsgService\obj\Debug\TakeMsgService.csprojResolveAssemblyReference.cache
+C:\Users\csj\Desktop\Simulator\TakeMsgService\obj\Debug\TakeMsgService.exe
+C:\Users\csj\Desktop\Simulator\TakeMsgService\obj\Debug\TakeMsgService.pdb

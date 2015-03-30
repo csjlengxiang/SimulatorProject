@@ -1,0 +1,14 @@
+G:\Simulator\DAL\bin\Release\DAL.dll
+G:\Simulator\DAL\bin\Release\DAL.pdb
+G:\Simulator\DAL\bin\Release\Model.dll
+G:\Simulator\DAL\bin\Release\Model.pdb
+G:\Simulator\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+G:\Simulator\DAL\obj\Release\DAL.dll
+G:\Simulator\DAL\obj\Release\DAL.pdb
+C:\Users\CSJ\Desktop\Simulator\DAL\bin\Release\DAL.dll
+C:\Users\CSJ\Desktop\Simulator\DAL\bin\Release\DAL.pdb
+C:\Users\CSJ\Desktop\Simulator\DAL\bin\Release\Model.dll
+C:\Users\CSJ\Desktop\Simulator\DAL\bin\Release\Model.pdb
+C:\Users\CSJ\Desktop\Simulator\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\CSJ\Desktop\Simulator\DAL\obj\Release\DAL.dll
+C:\Users\CSJ\Desktop\Simulator\DAL\obj\Release\DAL.pdb

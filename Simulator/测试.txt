@@ -1,0 +1,4 @@
+测试分了3部分：
+	1、追踪器数据请求，testPost发数据于TrackingDataService
+	2、TrackingDataService收到数据后，往csjSerialPortTestRec发送
+	3、csjSerialPortTestRec调用backgroundService完成操作，并发送至TrackingDataService，TrackingDataService调用短信接口

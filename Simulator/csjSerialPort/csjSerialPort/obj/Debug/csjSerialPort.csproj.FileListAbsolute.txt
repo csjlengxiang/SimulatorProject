@@ -1,0 +1,15 @@
+D:\mvc\csjSerialPort\csjSerialPort\obj\Debug\csjSerialPort.csprojResolveAssemblyReference.cache
+D:\mvc\csjSerialPort\csjSerialPort\bin\Debug\csjSerialPort.dll
+D:\mvc\csjSerialPort\csjSerialPort\bin\Debug\csjSerialPort.pdb
+D:\mvc\csjSerialPort\csjSerialPort\obj\Debug\csjSerialPort.dll
+D:\mvc\csjSerialPort\csjSerialPort\obj\Debug\csjSerialPort.pdb
+F:\铁科院\csjSerialPort\csjSerialPort\obj\Debug\csjSerialPort.csprojResolveAssemblyReference.cache
+F:\铁科院\csjSerialPort\csjSerialPort\obj\Debug\csjSerialPort.dll
+F:\铁科院\csjSerialPort\csjSerialPort\obj\Debug\csjSerialPort.pdb
+F:\铁科院\csjSerialPort\csjSerialPort\bin\Debug\csjSerialPort.dll
+F:\铁科院\csjSerialPort\csjSerialPort\bin\Debug\csjSerialPort.pdb
+G:\铁科院\csjSerialPort\csjSerialPort\bin\Debug\csjSerialPort.dll
+G:\铁科院\csjSerialPort\csjSerialPort\bin\Debug\csjSerialPort.pdb
+G:\铁科院\csjSerialPort\csjSerialPort\obj\Debug\csjSerialPort.csprojResolveAssemblyReference.cache
+G:\铁科院\csjSerialPort\csjSerialPort\obj\Debug\csjSerialPort.dll
+G:\铁科院\csjSerialPort\csjSerialPort\obj\Debug\csjSerialPort.pdb

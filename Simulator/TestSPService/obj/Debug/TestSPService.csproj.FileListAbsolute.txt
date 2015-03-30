@@ -1,0 +1,12 @@
+G:\Simulator\TestSPService\bin\Debug\TestSPService.exe.config
+G:\Simulator\TestSPService\bin\Debug\TestSPService.exe
+G:\Simulator\TestSPService\bin\Debug\TestSPService.pdb
+G:\Simulator\TestSPService\bin\Debug\BLL.dll
+G:\Simulator\TestSPService\bin\Debug\DAL.dll
+G:\Simulator\TestSPService\bin\Debug\Model.dll
+G:\Simulator\TestSPService\bin\Debug\BLL.pdb
+G:\Simulator\TestSPService\bin\Debug\DAL.pdb
+G:\Simulator\TestSPService\bin\Debug\Model.pdb
+G:\Simulator\TestSPService\obj\Debug\TestSPService.csprojResolveAssemblyReference.cache
+G:\Simulator\TestSPService\obj\Debug\TestSPService.exe
+G:\Simulator\TestSPService\obj\Debug\TestSPService.pdb

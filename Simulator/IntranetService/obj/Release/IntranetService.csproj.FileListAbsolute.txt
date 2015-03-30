@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\Simulator\IntranetService\bin\Release\IntranetService.exe.config
+C:\Users\Administrator\Desktop\Simulator\IntranetService\bin\Release\IntranetService.exe
+C:\Users\Administrator\Desktop\Simulator\IntranetService\bin\Release\IntranetService.pdb
+C:\Users\Administrator\Desktop\Simulator\IntranetService\bin\Release\BLL.dll
+C:\Users\Administrator\Desktop\Simulator\IntranetService\bin\Release\DAL.dll
+C:\Users\Administrator\Desktop\Simulator\IntranetService\bin\Release\Model.dll
+C:\Users\Administrator\Desktop\Simulator\IntranetService\bin\Release\BLL.pdb
+C:\Users\Administrator\Desktop\Simulator\IntranetService\bin\Release\DAL.pdb
+C:\Users\Administrator\Desktop\Simulator\IntranetService\bin\Release\Model.pdb
+C:\Users\Administrator\Desktop\Simulator\IntranetService\obj\Release\IntranetService.exe
+C:\Users\Administrator\Desktop\Simulator\IntranetService\obj\Release\IntranetService.pdb

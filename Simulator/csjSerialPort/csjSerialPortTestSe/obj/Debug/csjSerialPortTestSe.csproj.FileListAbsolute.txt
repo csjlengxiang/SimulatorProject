@@ -1,0 +1,11 @@
+F:\铁科院\csjSerialPort\csjSerialPortTestSe\bin\Debug\csjSerialPortTestSe.exe.config
+F:\铁科院\csjSerialPort\csjSerialPortTestSe\bin\Debug\csjSerialPortTestSe.exe
+F:\铁科院\csjSerialPort\csjSerialPortTestSe\bin\Debug\csjSerialPortTestSe.pdb
+F:\铁科院\csjSerialPort\csjSerialPortTestSe\bin\Debug\csjSerialPort.dll
+F:\铁科院\csjSerialPort\csjSerialPortTestSe\bin\Debug\csjSerialPort.pdb
+F:\铁科院\csjSerialPort\csjSerialPortTestSe\obj\Debug\csjSerialPortTestSe.csprojResolveAssemblyReference.cache
+F:\铁科院\csjSerialPort\csjSerialPortTestSe\obj\Debug\csjSerialPortTestSe.exe
+F:\铁科院\csjSerialPort\csjSerialPortTestSe\obj\Debug\csjSerialPortTestSe.pdb
+G:\铁科院\csjSerialPort\csjSerialPortTestSe\bin\Debug\csjSerialPortTestSe.exe.config
+G:\铁科院\csjSerialPort\csjSerialPortTestSe\obj\Debug\csjSerialPortTestSe.exe
+G:\铁科院\csjSerialPort\csjSerialPortTestSe\obj\Debug\csjSerialPortTestSe.pdb

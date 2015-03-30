@@ -1,0 +1,12 @@
+C:\Users\csj\Desktop\testPost\bin\Debug\testPost.exe.config
+C:\Users\csj\Desktop\testPost\bin\Debug\testPost.exe
+C:\Users\csj\Desktop\testPost\bin\Debug\testPost.pdb
+C:\Users\csj\Desktop\testPost\obj\Debug\testPost.csprojResolveAssemblyReference.cache
+C:\Users\csj\Desktop\testPost\obj\Debug\testPost.exe
+C:\Users\csj\Desktop\testPost\obj\Debug\testPost.pdb
+G:\Simulator\testPost\bin\Debug\testPost.exe.config
+G:\Simulator\testPost\obj\Debug\testPost.exe
+G:\Simulator\testPost\obj\Debug\testPost.pdb
+G:\Simulator\testPost\bin\Debug\testPost.exe
+G:\Simulator\testPost\bin\Debug\testPost.pdb
+G:\Simulator\testPost\obj\Debug\testPost.csprojResolveAssemblyReference.cache

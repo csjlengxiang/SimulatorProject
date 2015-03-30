@@ -1,0 +1,6 @@
+G:\Simulator\testPost\bin\Release\testPost.exe.config
+G:\Simulator\testPost\bin\Release\testPost.exe
+G:\Simulator\testPost\bin\Release\testPost.pdb
+G:\Simulator\testPost\obj\Release\testPost.csprojResolveAssemblyReference.cache
+G:\Simulator\testPost\obj\Release\testPost.exe
+G:\Simulator\testPost\obj\Release\testPost.pdb
