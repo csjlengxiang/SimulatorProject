@@ -23,11 +23,11 @@ namespace Model
         public string HPH { get; set; }
 
         public string YJSPCH { get; set; }
-        //public string XX { get; set; }
+ 
 
         #region 新增车长、货运主任、后勤货运员ID、品名
-        //public string CZID { get; set; }
-        //public string HYZRID { get; set; }
+        public string CZID { get; set; }
+        public string HYZRID { get; set; }
         public string HQHYYID { get; set; }
 
         public string SBBH { get; set; }
@@ -36,12 +36,12 @@ namespace Model
         public string ZXWD { get; set; }
 
         public string ZXDD { get; set; }
+        
         public string ZXSJ { get; set; }
 
-        //public string PM { get; set; }
+        public string PM { get; set; }
 
 
-        //电压：速度
         #endregion 
     }
 }

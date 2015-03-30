@@ -12,11 +12,18 @@ namespace DAL
     {
         public List<JS> Select(string sql)
         {
-            List<JS> jss = new List<JS>();
-            DataSet ds = DbHelper.Query(sql);
-            foreach (DataRow dr in ds.Tables[0].Rows)
-                jss.Add(LoadEntity(dr));
-            return jss;
+            try
+            {
+                List<JS> jss = new List<JS>();
+                DataSet ds = DbHelper.Query(sql);
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                    jss.Add(LoadEntity(dr));
+                return jss;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
         private JS LoadEntity(DataRow dr)
         {
@@ -49,18 +56,16 @@ namespace DAL
             //js.PM = dr["PM"].ToString();
             return js;
         }
-        public bool Update(string sql)
+        public void Update(string sql)
         {
-            int ret = 0;
             try
             {
-                ret += DbHelper.ExecuteSql(sql);
+                DbHelper.ExecuteSql(sql);
             }
-            catch
+            catch (Exception e)
             {
-                ret = 0;
+                throw e;
             }
-            return ret == 1;
         }
     }
 }

@@ -30,26 +30,12 @@ namespace TrackingDataService
                 //cnt++;
                 //str = "cnt:" + cnt.ToString() + " " + str;
                 spService.Send(str);
-                mess(str);
+                LogService.Mess(str);
             }
             return "ok";
         }
 
-        public static void mess(string data)
-        {
-            try
-            {
-                if (!Directory.Exists(@"c:\GpsMessges"))
-                    Directory.CreateDirectory(@"c:\GpsMessges");
-                StreamWriter sw = File.AppendText(@"c:\GpsMessges\" + DateTime.Now.ToString("yyyyMMdd") + ".txt");
-                sw.WriteLine("【" + DateTime.Now.ToString() + "】" + data);
-                sw.Close();
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
+      
         public static string changestate(string state)
         {
             if (state == "1") return "4";

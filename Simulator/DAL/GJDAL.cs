@@ -10,32 +10,31 @@ namespace DAL
 {
     public class GJDAL
     {
-        public bool Insert(GJ gj)
+        public void Insert(string sql)
         {
-            int ret = 0;
             try
             {
-                //string sql = string.Format("insert into FDS_GJB(ID,SH,SJH,DWSJ,DWDD,JD,WD,DWZT,DY,SD) values('{0}','{1}','{2}',to_date('{3}','yyyy/mm/dd hh24:mi:ss'),'{4}','{5}','{6}','{7}','{8}','{9}')",
-                //    gj.ID, gj.SH, gj.SJH, gj.DWSJ, gj.DWDD, gj.JD, gj.WD, gj.DWZT, gj.DY, gj.SD);
-
-                string sql = string.Format("insert into FDS_GJB(ID,DWSJ,DWDD,JD,WD,DWZT,SH,SBBH) values('{0}',to_date('{1}','yyyy/mm/dd hh24:mi:ss'),'{2}','{3}','{4}','{5}','{6}','{7}')",
-                    gj.ID, gj.DWSJ, gj.DWDD, gj.JD, gj.WD, gj.DWZT, gj.SH, gj.SBBH);
-
-                ret = DbHelper.ExecuteSql(sql);
+                DbHelper.ExecuteSql(sql);
             }
-            catch
+            catch (Exception e) 
             {
-                ret = 0;
+                throw e;
             }
-            return ret == 1;
         }
         public List<GJ> Select(string sql)
         {
-            List<GJ> gjs = new List<GJ>();
-            DataSet ds = DbHelper.Query(sql);
-            foreach (DataRow dr in ds.Tables[0].Rows)
-                gjs.Add(LoadEntity(dr));
-            return gjs;
+            try
+            {
+                List<GJ> gjs = new List<GJ>();
+                DataSet ds = DbHelper.Query(sql);
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                    gjs.Add(LoadEntity(dr));
+                return gjs;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
         private GJ LoadEntity(DataRow dr)
         {

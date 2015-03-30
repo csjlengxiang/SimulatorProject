@@ -30,7 +30,7 @@ namespace BLL
         /// </summary>
         /// <param name="gj"></param>
         /// <returns></returns>
-        public bool UpdateByGJAndGetJS(GJ gj, ref JS js, ref string preZTBJ, GJService gjService)
+        public bool UpdateByGJAndGetJS(GJ gj, ref string preZTBJ, ref JS js)
         {
             /*
             zxjd jd
@@ -43,20 +43,9 @@ namespace BLL
             sh sh
              */
 
-            js = SelectBySBBH(gj.SBBH);
-
-            
-            //////////////////////////////////////
-            if(js.SH!=null)
-                gj.SH = js.SH;
-            if (js.SH == null)
-                gj.SH = "null";
-            bool suc = false;
-            suc = gjService.Insert(gj);
-            if (!suc) return false;
-            //////////////////////////////////////
+            JS js = SelectBySBBH(gj.SBBH);
             if (js == null) return false;
-
+            
             preZTBJ = js.ZTBJ;
             
             //string sql = string.Format("update FDSGLXT_JSJLB set zxjd='{0}',zxwd='{1}',zxsj=to_date('{2}','yyyy/mm/dd hh24:mi:ss'),zxdy='{3}',zxsd='{4}',zxdd='{5}',ztbj='{6}' where sh='{7}'", gj.JD, gj.WD, gj.DWSJ, gj.DY, gj.SD, gj.DWDD, gj.DWZT, gj.SH);
@@ -70,7 +59,7 @@ namespace BLL
             js.ZXSJ = gj.DWSJ;
             js.ZXDD = gj.DWDD;
             
-            suc = jsDal.Update(sql);
+            bool suc = jsDal.Update(sql);
             return suc;
         }
         /// <summary>

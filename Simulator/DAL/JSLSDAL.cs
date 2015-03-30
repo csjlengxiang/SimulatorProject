@@ -9,19 +9,16 @@ namespace DAL
 {
     public class JSLSDAL
     {
-        public bool Insert(string sql)
+        public void Insert(string sql)
         {
-            int ret = 0;
-
             try
             {
-                ret = DbHelper.ExecuteSql(sql);
+                DbHelper.ExecuteSql(sql);
             }
-            catch
+            catch (Exception e)
             {
-                ret = 0;
+                throw e;
             }
-            return ret == 1;
         }
     }
 }
