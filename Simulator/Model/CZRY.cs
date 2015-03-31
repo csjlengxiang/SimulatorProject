@@ -14,6 +14,6 @@ namespace DAL
 
         public string RYLX { get; set; }
 
-        public string SSCZID { get; set; }
+        public string CZID { get; set; }
     }
 }

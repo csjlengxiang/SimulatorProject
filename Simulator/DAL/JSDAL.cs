@@ -28,32 +28,28 @@ namespace DAL
         private JS LoadEntity(DataRow dr)
         {
             JS js = new JS();
-
             js.CH = dr["CH"].ToString();
-            //js.CSSJ = dr["CSSJ"].ToString();
+            js.SH = dr["SH"].ToString();
+            js.CSSJ = dr["CSSJ"].ToString();
             js.HPH = dr["HPH"].ToString();
             js.JIARYYHM = dr["JIARYYHM"].ToString();
             js.JIERYYHM = dr["JIERYYHM"].ToString();
             js.JSSJ = dr["JSSJ"].ToString();
-            //js.LSGJ = dr["LSGJ"].ToString();
             js.QSCZID = dr["QSCZID"].ToString();
             js.SH = dr["SH"].ToString();
             js.SJH = dr["SJH"].ToString();
             js.ZDCZID = dr["ZDCZID"].ToString();
             js.ZTBJ = dr["ZTBJ"].ToString();
-
-            //js.CZID = dr["CZID"].ToString();
-            //js.HYZRID = dr["HYZRID"].ToString();
-
+            js.CZID = dr["CZID"].ToString();
+            js.HYZRID = dr["HYZRID"].ToString();
             js.HQHYYID = dr["HQRYID"].ToString();
-
             js.SBBH = dr["SBBH"].ToString();
-
             js.ZXJD = dr["ZXJD"].ToString();
             js.ZXWD = dr["ZXWD"].ToString();
             js.ZXDD = dr["ZXDD"].ToString();
             js.ZXSJ = dr["ZXSJ"].ToString();
-            //js.PM = dr["PM"].ToString();
+            js.ZXDY = dr["ZXDY"].ToString();
+            js.PM = dr["PM"].ToString();
             return js;
         }
         public void Update(string sql)

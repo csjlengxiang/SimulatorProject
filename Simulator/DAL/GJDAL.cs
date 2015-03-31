@@ -40,17 +40,15 @@ namespace DAL
         {
             GJ gj = new GJ();
 
-            //gj.ID = dr["ID"].ToString();
-            //gj.SH = dr["SH"].ToString();
-            //gj.SJH = dr["SJH"].ToString();
+            gj.ID = dr["ID"].ToString();
             gj.DWSJ = dr["DWSJ"].ToString();
             gj.JD = dr["JD"].ToString();
             gj.WD = dr["WD"].ToString();
-            //gj.DWZT = dr["DWZT"].ToString();
-            //gj.DWDD = dr["DWDD"].ToString();
-            //gj.SD = dr["SD"].ToString();
-            //gj.DY = dr["DY"].ToString();
-            //gj.SBBH = dr["SBBH"].ToString();
+
+            gj.DWZT = dr["DWZT"].ToString();
+            gj.DWDD = dr["DWDD"].ToString();
+            gj.DY = dr["DY"].ToString();
+            gj.SBBH = dr["SBBH"].ToString();
 
             return gj;
         }

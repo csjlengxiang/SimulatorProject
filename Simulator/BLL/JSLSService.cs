@@ -20,50 +20,28 @@ namespace BLL
         /// <returns></returns>
         public void Insert(JS js, string gjStr)
         {
-            /*
-                     public string SBBB { get; set; }
-        public string CZID { get; set; }
-        public string HYZRID { get; set; }
-        public string HQHYYID { get; set; }
-        public string PM { get; set; }
-             */
-            //string sql = string.Format("insert into FDSGLXT_JSJLLSB t(JLH,QSCZID,ZDCZID,JIARYYHM,JIERYYHM,SH,SJH,CH,JSSJ,CSSJ,HPH,LSGJ,SBBH,CZID,HYZRID,HQHYYID,PM) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',to_date('{8}','yyyy/mm/dd hh24:mi:ss'),to_date('{9}','yyyy/mm/dd hh24:mi:ss'),'{10}','{11}','{12}','{13}','{14}','{15}','{16}')",
-            //    Guid.NewGuid().ToString(),
-            //    js.QSCZID,
-            //    js.ZDCZID,
-            //    js.JIARYYHM,
-            //    js.JIERYYHM,
-            //    js.SH,
-            //    js.SJH,
-            //    js.CH,
-            //    js.JSSJ,
-            //    js.ZXSJ, //拆锁时间为最新的时间...
-            //    js.HPH,
-            //    gjStr,  //历史轨迹...
-            //    js.SBBH,
-            //    "",
-            //    "",
-            //    js.HQHYYID,
-            //    ""
-            //    );
-
             try
             {
-                string sql = string.Format("insert into FDSGLXT_JSJLLSB t(JLH,QSCZID,ZDCZID,JIARYYHM,JIERYYHM,SH,SJH,CH,JSSJ,CSSJ,HPH,LSGJ,SBBH,HQRYID) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',to_date('{8}','yyyy/mm/dd hh24:mi:ss'),to_date('{9}','yyyy/mm/dd hh24:mi:ss'),'{10}','{11}','{12}','{13}')",
-                    Guid.NewGuid().ToString(),
-                    js.QSCZID,
-                    js.ZDCZID,
-                    js.JIARYYHM,
-                    js.JIERYYHM,
-                    js.SH,
-                    js.SJH,
-                    js.CH,
-                    js.JSSJ,
-                    js.ZXSJ, //拆锁时间为最新的时间...
-                    js.HPH,
-                    gjStr,  //历史轨迹...
-                    js.SBBH,
-                    js.HQHYYID
+                string sql = string.Format("insert into FDSGLXT_JSJLLSB t(JLH,QSCZID,ZDCZID,JIARYYHM,JIERYYHM,SH,SJH,CH,JSSJ,CSSJ,HPH,LSGJ,SBBH,HQRYID,ZTBJ,HYZRID,HQHYYID,PM,YJSPCH) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',to_date('{8}','yyyy/mm/dd hh24:mi:ss'),to_date('{9}','yyyy/mm/dd hh24:mi:ss'),'{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}')",
+                        Guid.NewGuid().ToString(),
+                        js.QSCZID,
+                        js.ZDCZID,
+                        js.JIARYYHM,
+                        js.JIERYYHM,
+                        js.SH,
+                        js.SJH,
+                        js.CH,
+                        js.JSSJ,
+                        js.ZXSJ, //拆锁时间为最新的时间...
+                        js.HPH,
+                        gjStr,  //历史轨迹...
+                        js.SBBH,
+                        js.HQHYYID,
+                        js.ZTBJ,
+                        js.HYZRID,
+                        js.HQHYYID,
+                        js.PM,
+                        js.YJSPCH
                     );
                 jslsDal.Insert(sql);
             }

@@ -36,10 +36,13 @@ namespace TrackingDataService
       
         public static string changestate(string state)
         {
+            return state;
+            /*
             if (state == "1") return "4";
             if (state == "3") return "1";
             if (state == "4") return "2";
             return "9";
+             */ 
         }
     }
 }

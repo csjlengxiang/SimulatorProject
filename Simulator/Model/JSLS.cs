@@ -18,19 +18,14 @@ namespace Model
         public string JSSJ { get; set; }
         public string CSSJ { get; set; }
 
-        //public string ZTBJ { get; set; }
+        public string ZTBJ { get; set; }
         public string LSGJ { get; set; }
         public string HPH { get; set; }
-
-        #region 新增字段
         public string SBBH { get; set; }
-        //public string CZID { get; set; }
-        //public string HYZRID { get; set; }
+        public string CZID { get; set; }
+        public string HYZRID { get; set; }
         public string HQHYYID { get; set; }
-        //public string PM { get; set; }
-        #endregion
-        //无用字段
-        //public string YJSPCH { get; set; }
-        //public string XX { get; set; }
+        public string PM { get; set; }
+        public string YJSPCH { get; set; }
     }
 }

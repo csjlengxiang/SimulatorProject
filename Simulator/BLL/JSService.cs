@@ -35,46 +35,107 @@ namespace BLL
 
         }
         /// <summary>
-        /// 拿最新轨迹点去更新加锁表，根据锁号来查询的
+        /// 拿最新轨迹点去更新加锁表(注意预加锁状态不更新状态...)，根据锁号来查询的
         /// </summary>
         /// <param name="gj"></param>
         /// <returns></returns>
-        public void UpdateByGJAndGetJS(GJ gj, ref string preZTBJ, ref JS js)
+        //public void UpdateByGJAndGetJS(GJ gj, ref string preZTBJ, ref JS js)
+        //{
+        //    /*
+        //    zxjd jd
+        //    zxwd wd
+        //    zxsj dwsj
+        //    zxdy dy
+        //    zxdd dwdd
+        //    ztbj dwzt
+        //     */
+        //    try
+        //    {
+        //        js = SelectBySBBH(gj.SBBH);
+
+        //        preZTBJ = js.ZTBJ;
+
+        //        string sql = string.Format("update FDSGLXT_JSJLB set zxjd='{0}',zxwd='{1}',zxsj=to_date('{2}','yyyy/mm/dd hh24:mi:ss'),zxdd='{3}',ztbj='{4}',zxdy='{5}' where sbbh='{6}'",
+        //            gj.JD, gj.WD, gj.DWSJ, gj.DWDD, gj.DWZT, gj.DY, gj.SBBH);
+
+        //        jsDal.Update(sql);
+
+        //        //更新js状态
+        //        js.ZTBJ = gj.DWZT;
+        //        js.ZXJD = gj.JD;
+        //        js.ZXWD = gj.WD;
+        //        js.ZXSJ = gj.DWSJ;
+        //        js.ZXDD = gj.DWDD;
+        //        js.ZXDY = gj.DY;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
+
+        private string GJStateToJSState(string gjState)
+        {
+            if (gjState == GJ.gjState.js.ToString())
+                return JS.jsState.js.ToString();
+            if (gjState == GJ.gjState.dw.ToString())
+                return JS.jsState.dw.ToString();
+            if (gjState == GJ.gjState.ps.ToString())
+                return JS.jsState.ps.ToString();
+            return null;
+        }
+        /// <summary>
+        /// 拿最新轨迹点去更新加锁表(注意预加锁状态不更新状态...)，根据锁号来查询的
+        /// </summary>
+        /// <param name="gj"></param>
+        /// <returns></returns>
+        public void UpdateByGJAndGetJS2(GJ gj, ref string preZTBJ, ref JS js)
         {
             /*
             zxjd jd
             zxwd wd
             zxsj dwsj
             zxdy dy
-            zxsd sd
             zxdd dwdd
             ztbj dwzt
-            sh sh
              */
             try
             {
                 js = SelectBySBBH(gj.SBBH);
 
-
                 preZTBJ = js.ZTBJ;
 
-                //string sql = string.Format("update FDSGLXT_JSJLB set zxjd='{0}',zxwd='{1}',zxsj=to_date('{2}','yyyy/mm/dd hh24:mi:ss'),zxdy='{3}',zxsd='{4}',zxdd='{5}',ztbj='{6}' where sh='{7}'", gj.JD, gj.WD, gj.DWSJ, gj.DY, gj.SD, gj.DWDD, gj.DWZT, gj.SH);
-                string sql = string.Format("update FDSGLXT_JSJLB set zxjd='{0}',zxwd='{1}',zxsj=to_date('{2}','yyyy/mm/dd hh24:mi:ss'),zxdd='{3}',ztbj='{4}' where sbbh='{5}'",
-                    gj.JD, gj.WD, gj.DWSJ, gj.DWDD, gj.DWZT, gj.SBBH);
+                #region 如果处于预加锁状态，不更新状态
+                string jsState;
+                if(preZTBJ == JS.jsState.yjs.ToString())
+                {
+                    jsState = preZTBJ;
+                }
+                else
+                {
+                    jsState = GJStateToJSState(gj.DWZT);
+                }
+                #endregion
+
+                string sql = string.Format("update FDSGLXT_JSJLB set zxjd='{0}',zxwd='{1}',zxsj=to_date('{2}','yyyy/mm/dd hh24:mi:ss'),zxdd='{3}',ztbj='{4}',zxdy='{5}' where sbbh='{6}'",
+                    gj.JD, gj.WD, gj.DWSJ, gj.DWDD, jsState, gj.DY, gj.SBBH);
+
+                jsDal.Update(sql);
 
                 //更新js状态
-                js.ZTBJ = gj.DWZT;
+                js.ZTBJ = jsState;
                 js.ZXJD = gj.JD;
                 js.ZXWD = gj.WD;
                 js.ZXSJ = gj.DWSJ;
                 js.ZXDD = gj.DWDD;
-                jsDal.Update(sql);
+                js.ZXDY = gj.DY;
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
+
         /// <summary>
         /// 根据锁号销号
         /// </summary>
@@ -84,9 +145,7 @@ namespace BLL
         {
             try
             {
-                //string sql = string.Format("update FDSGLXT_JSJLB set ztbj='{0}' where sh='{1}'", "4", sh);
                 string sql = string.Format("delete FDSGLXT_JSJLB where sbbh='{0}'", sbbh);
-
                 jsDal.Update(sql);
             }
             catch (Exception e)
