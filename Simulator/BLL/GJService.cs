@@ -23,12 +23,12 @@ namespace BLL
         /// </summary>
         /// <param name="str"></param>
         /// <returns>成功返回1，失败0</returns>
-        public void LoadGJ(string str, ref GJ gj)
+        public GJ LoadGJ(string str)
         {
             try
             {
                 string[] strs = str.Split(' ');
-                gj = new GJ();
+                GJ gj = new GJ();
                 
                 gj.ID = Guid.NewGuid().ToString();
                 
@@ -38,6 +38,7 @@ namespace BLL
                 gj.JD = strs[4];
                 gj.WD = strs[5];
                 gj.DWDD = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD));
+                return gj;
             }
             catch (Exception e)
             {

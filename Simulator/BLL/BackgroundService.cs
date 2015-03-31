@@ -1,4 +1,5 @@
 ﻿//#define debug
+#define log
 using Model;
 using System;
 using System.Collections.Generic;
@@ -10,33 +11,25 @@ namespace BLL
 {
     public class BackgroundService
     {
-        //后台服务开启后，单例模式
+        //后台服务开启后，单例模式，既然是单例其实可以上来先优化好...
         GJService gjService = new GJService();
         JSService jsService = new JSService();
         JSLSService jslsService = new JSLSService();
         CZRYService czryService = new CZRYService();
-        SPService spService; // = new SPService("com5");
-
-        public BackgroundService(SPService _spService)
+        csjSerialPort serialPortService;
+        public BackgroundService(string com)
         {
-            spService = _spService;
+            serialPortService = new csjSerialPort(Oper, com);
+            serialPortService.Open();
         }
 
-        public bool Oper(string sp)
+        public void Oper(string sp)
         {
-            bool suc = false;
-
             //解析数据
-            GJ gj = null;
-            suc = gjService.LoadGJ(sp, ref gj);
-
-            if (!suc) return false;
+            GJ gj = gjService.LoadGJ(sp);
 
             //插入解析数据于数据库
-
-            suc = gjService.Insert(gj);
-
-            if (!suc) return false;
+            gjService.Insert(gj);
 
             //开启加锁服务
 
@@ -45,9 +38,8 @@ namespace BLL
             JS js = null;
             string preZTBJ = null;
 
-            suc = jsService.UpdateByGJAndGetJS(gj, ref preZTBJ, ref js);
+            jsService.UpdateByGJAndGetJS(gj, ref preZTBJ, ref js);
 
-            if (!suc) return false;
             //throw new Exception("加锁表未建立...");
              
             #endregion
@@ -67,7 +59,7 @@ namespace BLL
                 //调用发出外网...再短信服务...
                 string str = sjh + " " + sh + " " + ch + " 加锁";
                 LogService.Mess(str, @"c:\IntranetService");
-                spService.Send(str);
+                serialPortService.Send(str);
 
             }
             // 破锁，报警
@@ -78,8 +70,8 @@ namespace BLL
                 string sh = js.SH;
                 string ch = js.CH;
 
-                spService.Send(sjh1 + " " + sh + " " + ch + " 破锁");
-                spService.Send(sjh2 + " " + sh + " " + ch + " 破锁");
+                serialPortService.Send(sjh1 + " " + sh + " " + ch + " 破锁");
+                serialPortService.Send(sjh2 + " " + sh + " " + ch + " 破锁");
                 string str = sjh1 + " " + sh + " " + ch + " 加锁";
                 LogService.Mess(str, @"c:\IntranetService");
                 str = sjh2 + " " + sh + " " + ch + " 加锁";
@@ -97,17 +89,15 @@ namespace BLL
 
                 //更新将其跟新为一个新的历史记录...
 
-                suc = jslsService.Insert(js, gjStr);
+                jslsService.Insert(js, gjStr);
 
-                if (!suc) return false;
-
+               
                 // 0 预加锁 1 加锁 2 破锁 3 销号 4 销号完毕
                 ////////更新定位状态为4
                 // 新版直接删了...
-                suc = jsService.XiaoHao(js.SBBH);
-                if (!suc) return false;
+                jsService.XiaoHao(js.SBBH);
+
             }
-            return suc;
         }
     }
 }

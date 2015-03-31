@@ -18,7 +18,7 @@ namespace TrackingDataService
     // [System.Web.Script.Services.ScriptService]
     public class DataService : System.Web.Services.WebService
     {
-        static SPService spService = new SPService("com6", false);
+        static InternetService internetService = new InternetService("com6");
         static object loc = new object();
         static int cnt = 0;
         [WebMethod]
@@ -27,9 +27,7 @@ namespace TrackingDataService
             string str = sbbh + " " + changestate(state) + " " + tim + " " + jd + " " + wd;
             lock (loc)
             {
-                //cnt++;
-                //str = "cnt:" + cnt.ToString() + " " + str;
-                spService.Send(str);
+                internetService.Send(str);
                 LogService.Mess(str);
             }
             return "ok";
