@@ -16,6 +16,9 @@ namespace BLL
         JSService jsService = new JSService();
         JSLSService jslsService = new JSLSService();
         CZRYService czryService = new CZRYService();
+        PSService psService = new PSService();
+        PositionService positionService = new PositionService();
+        DXService dxService = new DXService();
         csjSerialPort serialPortService;
         public BackgroundService(string com)
         {
@@ -30,6 +33,7 @@ namespace BLL
 
             //插入解析数据于数据库
             gjService.Insert(gj);
+            gj.DWDD = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD));
 
             //根据轨迹点更新加锁表. 注意：加锁表需要存在
             JS js = null;
@@ -48,6 +52,7 @@ namespace BLL
                 string ch = js.CH;
                 string str = sjh + " " + sh + " " + ch + " 加锁";
                 LogService.Mess(str, @"c:\IntranetService");
+                dxService.Insert(js.HQHYYID, gj.DWSJ, str, DX.dxlx.js.ToString());
                 serialPortService.Send(str);
             }
             // 破锁，未预先确认破锁就破了
@@ -60,11 +65,12 @@ namespace BLL
 
                 serialPortService.Send(sjh1 + " " + sh + " " + ch + " 破锁");
                 serialPortService.Send(sjh2 + " " + sh + " " + ch + " 破锁");
-                string str = sjh1 + " " + sh + " " + ch + " 加锁";
+                string str = sjh1 + " " + sh + " " + ch + " 破锁";
                 LogService.Mess(str, @"c:\IntranetService");
-                str = sjh2 + " " + sh + " " + ch + " 加锁";
+                dxService.Insert(js.CZID, gj.DWSJ, str, DX.dxlx.ps.ToString());
+                str = sjh2 + " " + sh + " " + ch + " 破锁";
                 LogService.Mess(str, @"c:\IntranetService");
-
+                dxService.Insert(js.HYZRID, gj.DWSJ, str, DX.dxlx.ps.ToString());
                 //取出轨迹点，组合成历史记录... 
 
                 string gjStr = gjService.GetGJStr(js.SBBH, js.JSSJ);
@@ -74,6 +80,8 @@ namespace BLL
                 jslsService.Insert(js, gjStr);
 
                 //将破锁信息存储...补封操作更新新锁号信息，状态标记为加锁
+
+                psService.Insert(gj.DWSJ, gj.DWDD);
 
             }
             //确认拆锁

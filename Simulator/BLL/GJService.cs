@@ -11,7 +11,6 @@ namespace BLL
     class GJService
     {
         //private GJ gj = new GJ();
-        private PositionService positionService = new PositionService();
         private GJDAL gjDal = new GJDAL();
 
         public GJ LoadGJ(string str)
@@ -27,7 +26,7 @@ namespace BLL
                 gj.JD = strs[4];
                 gj.WD = strs[5];
                 gj.DY = "5";
-                gj.DWDD = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD));
+                //gj.DWDD = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD));
                 return gj;
             }
             catch (Exception e)

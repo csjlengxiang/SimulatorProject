@@ -45,10 +45,12 @@
   <ItemGroup>
     <Compile Include="CZRYDAL.cs" />
     <Compile Include="DbHelper.cs" />
+    <Compile Include="DXDAL.cs" />
     <Compile Include="GJDAL.cs" />
     <Compile Include="JSDAL.cs" />
     <Compile Include="JSLSDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PSDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

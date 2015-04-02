@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BackgroundService.cs" />
     <Compile Include="CZRYService.cs" />
+    <Compile Include="DXService.cs" />
     <Compile Include="ExcelHelper.cs" />
     <Compile Include="GJService.cs" />
     <Compile Include="JSLSService.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="InternetService.cs" />
     <Compile Include="PositionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PSService.cs" />
     <Compile Include="SendService.cs" />
     <Compile Include="SerialPortService.cs">
       <SubType>Component</SubType>
