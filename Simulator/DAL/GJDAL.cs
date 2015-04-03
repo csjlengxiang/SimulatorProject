@@ -46,7 +46,7 @@ namespace DAL
             gj.WD = dr["WD"].ToString();
 
             gj.DWZT = dr["DWZT"].ToString();
-            gj.DWDD = dr["DWDD"].ToString();
+            gj.DWDDID = dr["DWDD"].ToString();
             gj.DY = dr["DY"].ToString();
             gj.SBBH = dr["SBBH"].ToString();
 

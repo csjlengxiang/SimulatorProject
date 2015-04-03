@@ -8,16 +8,12 @@ namespace Model
 {
     public class JS
     {
-        public enum jsState
-        {
-            yjs = 0,
-            js = 1,
-            dw = 2,
-            ps = 3,
-            cs = 4,
-            xh = 5
-        }
-
+        public const string yjs = "0";
+        public const string js = "1";
+        public const string dw = "2";
+        public const string ps = "3";
+        public const string cs = "4";
+        public const string xh = "5";
 
         public string QSCZID { get; set; }
         public string ZDCZID { get; set; }
@@ -31,7 +27,7 @@ namespace Model
         public string ZTBJ { get; set; }
         public string HPH { get; set; }
         public string YJSPCH { get; set; }
- 
+
         #region 新增车长、货运主任、后勤货运员ID、品名
         public string CZID { get; set; }
         public string HYZRID { get; set; }
@@ -43,11 +39,11 @@ namespace Model
         public string ZXWD { get; set; }
         public string ZXDY { get; set; }
         public string ZXDD { get; set; }
-        
+
         public string ZXSJ { get; set; }
         public string PM { get; set; }
 
 
-        #endregion 
+        #endregion
     }
 }

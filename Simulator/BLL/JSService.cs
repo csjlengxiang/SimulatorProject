@@ -76,12 +76,12 @@ namespace BLL
 
         private string GJStateToJSState(string gjState)
         {
-            if (gjState == GJ.gjState.js.ToString())
-                return JS.jsState.js.ToString();
-            if (gjState == GJ.gjState.dw.ToString())
-                return JS.jsState.dw.ToString();
-            if (gjState == GJ.gjState.ps.ToString())
-                return JS.jsState.ps.ToString();
+            if (gjState == GJ.js)
+                return JS.js;
+            if (gjState == GJ.dw)
+                return JS.dw;
+            if (gjState == GJ.ps)
+                return JS.ps;
             return null;
         }
         /// <summary>
@@ -107,7 +107,7 @@ namespace BLL
 
                 #region 如果处于预加锁状态，不更新状态
                 string jsState;
-                if(preZTBJ == JS.jsState.yjs.ToString())
+                if(preZTBJ == JS.yjs)
                 {
                     jsState = preZTBJ;
                 }
@@ -118,7 +118,7 @@ namespace BLL
                 #endregion
 
                 string sql = string.Format("update FDSGLXT_JSJLB set zxjd='{0}',zxwd='{1}',zxsj=to_date('{2}','yyyy/mm/dd hh24:mi:ss'),zxdd='{3}',ztbj='{4}',zxdy='{5}' where sbbh='{6}'",
-                    gj.JD, gj.WD, gj.DWSJ, gj.DWDD, jsState, gj.DY, gj.SBBH);
+                    gj.JD, gj.WD, gj.DWSJ, gj.DWDDID, jsState, gj.DY, gj.SBBH);
 
                 jsDal.Update(sql);
 
@@ -127,7 +127,7 @@ namespace BLL
                 js.ZXJD = gj.JD;
                 js.ZXWD = gj.WD;
                 js.ZXSJ = gj.DWSJ;
-                js.ZXDD = gj.DWDD;
+                js.ZXDD = gj.DWDDID;
                 js.ZXDY = gj.DY;
             }
             catch (Exception e)

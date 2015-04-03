@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -16,12 +17,14 @@ namespace BLL
         }
         private class Station
         {
+            public string ID { get; set; }
             public string Name { get; set; }
             public double J { get; set; }
             public double W { get; set; }
             public string JW { get; set; }
-            public Station(string name, string jw)
+            public Station(string id, string name, string jw)
             {
+                ID = id;
                 Name = name;
                 J = Convert.ToDouble(jw.Split(',')[0]);
                 W = Convert.ToDouble(jw.Split(',')[1]);
@@ -63,11 +66,12 @@ namespace BLL
             //stations.Add(new Station("德州", "116.295593,37.456663"));
             //stations.Add(new Station("济南", "116.997278,36.676998"));
 
-            string p = Directory.GetCurrentDirectory() + @"\ok.xls";
+            //string p = Directory.GetCurrentDirectory() + @"\ok.xls";
             //MessageBox.Show(p);
-            Console.WriteLine(p);
+            //Console.WriteLine(p);
 
-            DataSet ds = ExcelHelper.GetDataSet(p, "select * from [Sheet1$]");
+            //DataSet ds = ExcelHelper.GetDataSet(p, "select * from [Sheet1$]");
+            DataSet ds = DbHelper.Query("select * from FDSGLXT_CZB");
 
             DataTable dt = ds.Tables[0];
 
@@ -78,9 +82,9 @@ namespace BLL
                 //ZM：站名
                 //JD：经
                 //WD：纬 
-                if (dr["ZM"].ToString() == "" || dr["JD"].ToString() == "" || dr["WD"].ToString() == "" || dr["电报码"].ToString() == "未发现" || dr["TIMIS"].ToString() == "未发现" || dr["站名略码"].ToString() == "未发现")
+                if (dr["ZM"].ToString() == "" || dr["JD"].ToString() == "" || dr["WD"].ToString() == "" || dr["DBM"].ToString() == "未发现" || dr["TIMIS"].ToString() == "未发现" || dr["ZMLM"].ToString() == "未发现")
                     continue;
-                stations.Add(new Station(dr["ZM"].ToString(), dr["JD"].ToString() + "," + dr["WD"].ToString()));
+                stations.Add(new Station(dr["CZID"].ToString() ,dr["ZM"].ToString(), dr["JD"].ToString() + "," + dr["WD"].ToString()));
                 cnt++;
             }
             //MessageBox.Show(cnt.ToString());
@@ -96,7 +100,7 @@ namespace BLL
                 if (d < dis)
                 {
                     dis = d;
-                    near = stations[i].Name;
+                    near = stations[i].ID;
                 }
             }
             return near;

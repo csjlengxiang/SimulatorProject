@@ -24,25 +24,42 @@ namespace BLL
         {
             serialPortService = new csjSerialPort(Oper, com);
             serialPortService.Open();
+#if debug
+            //测短信
+            dxService.Insert("jsrid", "2012/12/12 12:00:00", "neirong", "j");
+            //Oper();
+            //测破锁
+            psService.Insert("2012/12/12 12:00:00", "dwddid");
+#endif
         }
 
-        public void Oper(string sp)
+        public void Oper(string sp = "")
         {
-            //解析数据
+#if debug
+            GJ gj = new GJ();
+            gj.JD = "100";
+            gj.WD = "100";
+            gj.ID = Guid.NewGuid().ToString();
+            gj.SBBH = "sbbh";
+            gj.DWSJ = DateTime.Now.ToString();
+            gj.DWZT = GJ.gjState.j.ToString();
+            gj.DY = "dy";
+#else
             GJ gj = gjService.LoadGJ(sp);
-
+#endif
             //插入解析数据于数据库
+            gj.DWDDID = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD));
             gjService.Insert(gj);
-            gj.DWDD = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD));
-
+            
             //根据轨迹点更新加锁表. 注意：加锁表需要存在
             JS js = null;
             string preZTBJ = null;
-
-            jsService.UpdateByGJAndGetJS2(gj, ref preZTBJ, ref js);
-
+#if debug
+#else
+            jsService.UpdateByGJAndGetJS2(gj, ref preZTBJ, ref js);   
+#endif
             //加锁
-            if (gj.DWZT == GJ.gjState.js.ToString())
+            if (gj.DWZT == GJ.js)
             {
                 //获得id
                 //给手机sjh，发送: sh已经加在ch上
@@ -52,11 +69,11 @@ namespace BLL
                 string ch = js.CH;
                 string str = sjh + " " + sh + " " + ch + " 加锁";
                 LogService.Mess(str, @"c:\IntranetService");
-                dxService.Insert(js.HQHYYID, gj.DWSJ, str, DX.dxlx.js.ToString());
+                dxService.Insert(js.HQHYYID, gj.DWSJ, str, DX.js);
                 serialPortService.Send(str);
             }
             // 破锁，未预先确认破锁就破了
-            else if (preZTBJ != JS.jsState.cs.ToString() && gj.DWZT == GJ.gjState.ps.ToString())
+            else if (preZTBJ != JS.cs && gj.DWZT == GJ.ps)
             {
                 string sjh1 = czryService.GetSJHFromID(js.CZID);
                 string sjh2 = czryService.GetSJHFromID(js.HYZRID);
@@ -67,10 +84,11 @@ namespace BLL
                 serialPortService.Send(sjh2 + " " + sh + " " + ch + " 破锁");
                 string str = sjh1 + " " + sh + " " + ch + " 破锁";
                 LogService.Mess(str, @"c:\IntranetService");
-                dxService.Insert(js.CZID, gj.DWSJ, str, DX.dxlx.ps.ToString());
+                dxService.Insert(js.CZID, gj.DWSJ, str, DX.ps);
                 str = sjh2 + " " + sh + " " + ch + " 破锁";
                 LogService.Mess(str, @"c:\IntranetService");
-                dxService.Insert(js.HYZRID, gj.DWSJ, str, DX.dxlx.ps.ToString());
+                dxService.Insert(js.HYZRID, gj.DWSJ, str, DX.ps);
+
                 //取出轨迹点，组合成历史记录... 
 
                 string gjStr = gjService.GetGJStr(js.SBBH, js.JSSJ);
@@ -81,15 +99,12 @@ namespace BLL
 
                 //将破锁信息存储...补封操作更新新锁号信息，状态标记为加锁
 
-                psService.Insert(gj.DWSJ, gj.DWDD);
+                psService.Insert(gj.DWSJ, gj.DWDDID);
 
             }
             //确认拆锁
-            else if (preZTBJ == JS.jsState.cs.ToString() && gj.DWZT == GJ.gjState.ps.ToString())
+            else if (preZTBJ == JS.cs && gj.DWZT == GJ.ps)
             {
-#if debug
-                js.JSSJ = "2014/10/2 12:00:00";
-#endif 
                 //取出轨迹点，组合成历史记录... 
 
                 string gjStr = gjService.GetGJStr(js.SBBH, js.JSSJ);

@@ -8,11 +8,9 @@ namespace Model
 {
     public class DX
     {
-        public static enum dxlx
-        {
-            js = 1,
-            ps = 2
-        }
+        public const string js = "1";
+        public const string ps = "2";
+
         public string ID { get; set; }
         public string JSRID { get; set; }
         public string FSSJ { get; set; }
