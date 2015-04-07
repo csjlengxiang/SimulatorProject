@@ -1,11 +1,11 @@
-﻿using BLL;
+﻿
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-
+using BLL1;
 namespace TrackingDataService
 {
     /// <summary>
@@ -20,7 +20,7 @@ namespace TrackingDataService
     {
         static InternetService internetService = new InternetService("com6");
         static object loc = new object();
-        static int cnt = 0;
+        
         [WebMethod]
         public string insert(string sbbh, string state, string tim, string jd, string wd)
         {

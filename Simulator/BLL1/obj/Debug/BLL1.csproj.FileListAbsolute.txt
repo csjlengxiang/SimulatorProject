@@ -1,0 +1,9 @@
+C:\Users\csj\Desktop\SimulatorProject\Simulator\BLL1\bin\Debug\BLL1.dll
+C:\Users\csj\Desktop\SimulatorProject\Simulator\BLL1\bin\Debug\BLL1.pdb
+C:\Users\csj\Desktop\SimulatorProject\Simulator\BLL1\bin\Debug\DAL1.dll
+C:\Users\csj\Desktop\SimulatorProject\Simulator\BLL1\bin\Debug\Model.dll
+C:\Users\csj\Desktop\SimulatorProject\Simulator\BLL1\bin\Debug\DAL1.pdb
+C:\Users\csj\Desktop\SimulatorProject\Simulator\BLL1\bin\Debug\Model.pdb
+C:\Users\csj\Desktop\SimulatorProject\Simulator\BLL1\obj\Debug\BLL1.csprojResolveAssemblyReference.cache
+C:\Users\csj\Desktop\SimulatorProject\Simulator\BLL1\obj\Debug\BLL1.dll
+C:\Users\csj\Desktop\SimulatorProject\Simulator\BLL1\obj\Debug\BLL1.pdb

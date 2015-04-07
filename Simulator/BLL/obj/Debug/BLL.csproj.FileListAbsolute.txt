@@ -26,8 +26,6 @@ C:\Users\Administrator\Desktop\Simulator\BLL\obj\Debug\BLL.dll
 C:\Users\Administrator\Desktop\Simulator\BLL\obj\Debug\BLL.pdb
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\BLL\bin\Debug\BLL.dll
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\BLL\bin\Debug\BLL.pdb
-C:\Users\CSJ\Desktop\SimulatorProject\Simulator\BLL\bin\Debug\BLL.dll.CodeAnalysisLog.xml
-C:\Users\CSJ\Desktop\SimulatorProject\Simulator\BLL\bin\Debug\BLL.dll.lastcodeanalysissucceeded
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\BLL\bin\Debug\DAL.dll
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\BLL\bin\Debug\Model.dll
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\BLL\bin\Debug\DAL.pdb

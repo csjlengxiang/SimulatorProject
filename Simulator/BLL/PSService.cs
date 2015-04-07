@@ -1,5 +1,5 @@
-﻿using DAL;
-using Model;
+﻿
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;

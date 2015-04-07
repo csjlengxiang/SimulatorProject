@@ -1,5 +1,6 @@
 ﻿//#define debug
 #define log
+using DAL;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace BLL
             //测破锁
             psService.Insert("2012/12/12 12:00:00", "dwddid");
 #endif
-            udpService = new UdpService("127.0.0.1", "8000", "127.0.0.1", "8001", ZF);
+            udpService = new UdpService("127.0.0.1", "8000", null, null, ZF);
         }
 
         public void ZF(string msg)

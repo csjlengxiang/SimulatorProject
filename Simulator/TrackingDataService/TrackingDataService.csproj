@@ -79,9 +79,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{f349ffe6-9c44-4476-9803-1dcb356d610a}</Project>
-      <Name>BLL</Name>
+    <ProjectReference Include="..\BLL1\BLL1.csproj">
+      <Project>{c8dddc01-27c8-4e41-b548-7c608e68f8fc}</Project>
+      <Name>BLL1</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

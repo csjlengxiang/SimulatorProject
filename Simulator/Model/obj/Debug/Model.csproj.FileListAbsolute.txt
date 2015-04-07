@@ -7,7 +7,7 @@ C:\Users\CSJ\Desktop\Simulator\Model\bin\Debug\Model.dll
 C:\Users\CSJ\Desktop\Simulator\Model\bin\Debug\Model.pdb
 C:\Users\CSJ\Desktop\Simulator\Model\obj\Debug\Model.dll
 C:\Users\CSJ\Desktop\Simulator\Model\obj\Debug\Model.pdb
-C:\Users\CSJ\Desktop\SimulatorProject\Simulator\Model\bin\Debug\Model.dll
-C:\Users\CSJ\Desktop\SimulatorProject\Simulator\Model\bin\Debug\Model.pdb
-C:\Users\CSJ\Desktop\SimulatorProject\Simulator\Model\obj\Debug\Model.dll
-C:\Users\CSJ\Desktop\SimulatorProject\Simulator\Model\obj\Debug\Model.pdb
+C:\Users\csj\Desktop\SimulatorProject\Simulator\Model\bin\Debug\Model.dll
+C:\Users\csj\Desktop\SimulatorProject\Simulator\Model\bin\Debug\Model.pdb
+C:\Users\csj\Desktop\SimulatorProject\Simulator\Model\obj\Debug\Model.dll
+C:\Users\csj\Desktop\SimulatorProject\Simulator\Model\obj\Debug\Model.pdb

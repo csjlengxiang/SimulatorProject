@@ -14,13 +14,15 @@ namespace BLL
     {
         UdpClient udp;
         IPEndPoint sendHost;
-        SendService sendService = new SendService();
         UdpServiceReciveDelege udpServiceRecive;
         public UdpService(string localIP, string localPort, string sendIP, string sendPort, UdpServiceReciveDelege _udpServiceRecive)
         {
             udp = new UdpClient(new IPEndPoint(IPAddress.Parse(localIP), Convert.ToInt32(localPort)));
 
-            sendHost = new IPEndPoint(IPAddress.Parse(sendIP), Convert.ToInt32(sendPort));
+            if (!(sendIP == null || sendPort == null || sendIP == "" || sendPort == ""))
+            {
+                sendHost = new IPEndPoint(IPAddress.Parse(sendIP), Convert.ToInt32(sendPort));
+            }
 
             udpServiceRecive = _udpServiceRecive;
 
@@ -48,11 +50,10 @@ namespace BLL
             }
             ));
         }
-        public void Send(string msg)
+        private void Send(string msg)
         {
             byte[] b = Encoding.UTF8.GetBytes(msg);
             udp.Send(b, b.Length, sendHost);
         }
-
     }
 }
