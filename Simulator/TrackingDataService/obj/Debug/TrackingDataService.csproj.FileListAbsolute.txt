@@ -25,6 +25,8 @@ C:\Users\CSJ\Desktop\Simulator\TrackingDataService\obj\Debug\TrackingDataService
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\TrackingDataService\bin\TrackingDataService.dll.config
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\TrackingDataService\bin\TrackingDataService.dll
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\TrackingDataService\bin\TrackingDataService.pdb
+C:\Users\CSJ\Desktop\SimulatorProject\Simulator\TrackingDataService\bin\TrackingDataService.dll.CodeAnalysisLog.xml
+C:\Users\CSJ\Desktop\SimulatorProject\Simulator\TrackingDataService\bin\TrackingDataService.dll.lastcodeanalysissucceeded
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\TrackingDataService\bin\BLL.dll
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\TrackingDataService\bin\DAL.dll
 C:\Users\CSJ\Desktop\SimulatorProject\Simulator\TrackingDataService\bin\Model.dll

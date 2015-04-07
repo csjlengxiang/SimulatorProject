@@ -24,25 +24,13 @@ namespace TrackingDataService
         [WebMethod]
         public string insert(string sbbh, string state, string tim, string jd, string wd)
         {
-            string str = sbbh + " " + changestate(state) + " " + tim + " " + jd + " " + wd;
+            string str = sbbh + " " + state + " " + tim + " " + jd + " " + wd;
             lock (loc)
             {
                 internetService.Send(str);
                 LogService.Mess(str);
             }
             return "ok";
-        }
-
-      
-        public static string changestate(string state)
-        {
-            return state;
-            /*
-            if (state == "1") return "4";
-            if (state == "3") return "1";
-            if (state == "4") return "2";
-            return "9";
-             */ 
         }
     }
 }

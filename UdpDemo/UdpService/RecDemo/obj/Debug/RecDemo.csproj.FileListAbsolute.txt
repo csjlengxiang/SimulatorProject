@@ -1,0 +1,8 @@
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\RecDemo\bin\Debug\RecDemo.exe.config
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\RecDemo\bin\Debug\RecDemo.exe
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\RecDemo\bin\Debug\RecDemo.pdb
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\RecDemo\bin\Debug\UdpService.dll
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\RecDemo\bin\Debug\UdpService.pdb
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\RecDemo\obj\Debug\RecDemo.exe
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\RecDemo\obj\Debug\RecDemo.pdb
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\RecDemo\obj\Debug\RecDemo.csprojResolveAssemblyReference.cache

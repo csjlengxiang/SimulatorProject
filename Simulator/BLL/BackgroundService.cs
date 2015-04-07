@@ -20,6 +20,7 @@ namespace BLL
         PositionService positionService = new PositionService();
         DXService dxService = new DXService();
         csjSerialPort serialPortService;
+        UdpService udpService;
         public BackgroundService(string com)
         {
             serialPortService = new csjSerialPort(Oper, com);
@@ -31,8 +32,13 @@ namespace BLL
             //测破锁
             psService.Insert("2012/12/12 12:00:00", "dwddid");
 #endif
+            udpService = new UdpService("127.0.0.1", "8000", "127.0.0.1", "8001", ZF);
         }
 
+        public void ZF(string msg)
+        {
+            serialPortService.Send(msg);
+        }
         public void Oper(string sp = "")
         {
             try

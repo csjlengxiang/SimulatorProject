@@ -1,0 +1,8 @@
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\SendDemo\bin\Debug\SendDemo.exe.config
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\SendDemo\bin\Debug\SendDemo.exe
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\SendDemo\bin\Debug\SendDemo.pdb
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\SendDemo\bin\Debug\UdpService.dll
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\SendDemo\bin\Debug\UdpService.pdb
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\SendDemo\obj\Debug\SendDemo.csprojResolveAssemblyReference.cache
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\SendDemo\obj\Debug\SendDemo.exe
+C:\Users\CSJ\Desktop\SimulatorProject\UdpDemo\UdpService\SendDemo\obj\Debug\SendDemo.pdb
