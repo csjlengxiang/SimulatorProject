@@ -64,5 +64,16 @@ namespace DAL1
                 throw e;
             }
         }
+        public void Insert(string sql)
+        {
+            try
+            {
+                DbHelper.ExecuteSql(sql);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace Model
         public const string cs = "4";
         public const string xh = "5";
 
+        public string JLH { get; set; }
         public string QSCZID { get; set; }
         public string ZDCZID { get; set; }
         public string JIARYYHM { get; set; }

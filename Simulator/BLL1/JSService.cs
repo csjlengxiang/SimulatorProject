@@ -154,5 +154,217 @@ namespace BLL1
                 throw e;
             }
         }
+        #region 预加锁
+        public void YJS(string msg)
+        {
+            try
+            {
+                string[] dates = msg.Split(';');
+                List<JS> jss = new List<JS>();
+                foreach (string date in dates)
+                {
+                    JS js = YJSLoadJSEntity(date);
+                    jss.Add(js);
+                }
+
+                foreach (JS js in jss)
+                {
+                    //insert into FDSGLXT_JSJLB()
+                    //insert into FDSGLXT_JSJLB t(JLH,QSCZID,ZDCZID,JIARYYHM,SH,SJH,CH,JSSJ,ZTBJ,YJSPCH,HQHYYID,SBBH) 
+//values('900','123456789012345678901234567890123456','123456789012345678901234567890123457','BJP','shh','sjhh','chh',to_date('2015/1/15 8:59:36','yyyy/mm/dd hh24:mi:ss'),'1','yjspchh','1','sbbbb');
+                    string sql = string.Format("insert into FDSGLXT_JSJLB t(JLH,QSCZID,ZDCZID,JIARYYHM,SH,SJH,CH,JSSJ,ZTBJ,YJSPCH,HQHYYID,SBBH) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',to_date('{7}','yyyy/mm/dd hh24:mi:ss'),'{8}','{9}','{10}','{11}')",
+                        js.JLH,
+                        js.QSCZID,
+                        js.ZDCZID,
+                        js.JIARYYHM,
+                        js.SH,
+                        js.SJH,
+                        js.CH,
+                        js.JSSJ,
+                        js.ZTBJ,
+                        js.YJSPCH,
+                        js.HQHYYID,
+                        js.SBBH
+                        );
+                    jsDal.Insert(sql);
+                }
+            }
+            catch
+            {
+                throw new Exception("载入预加锁数据失败");
+            }
+        }
+
+        private JS YJSLoadJSEntity(string date)
+        {
+            JS js = new JS();
+            string[] strs = date.Split('|');
+            js.JLH = strs[0];
+            js.QSCZID = strs[1];
+            js.ZDCZID = strs[2];
+            js.JIARYYHM = strs[3];
+            js.SH = strs[4];
+            js.SJH = strs[5];
+            js.CH = strs[6];
+            js.JSSJ = strs[7];
+            js.ZTBJ = strs[8];
+            js.YJSPCH = strs[9];
+            js.HQHYYID = strs[10];
+            js.SBBH = strs[11];
+            return js;
+        }
+        #endregion 
+
+        #region 确认
+
+        public void YJSQR(string msg)
+        {
+            try
+            {
+                string[] dates = msg.Split(';');
+                List<JS> jss = new List<JS>();
+                foreach (string date in dates)
+                {
+                    JS js = YJSQRLoadJSEntity(date);
+                    jss.Add(js);
+                }
+
+                foreach (JS js in jss)
+                {
+                    
+                    //update FDSGLXT_JSJLB set ZTBJ='2',JIARYYHM='BJP',JSSJ=to_date('2015/10/15 8:59:36','yyyy/mm/dd hh24:mi:ss') where JLH='100'
+
+                    string sql = string.Format("update FDSGLXT_JSJLB set ZTBJ='{0}',JIARYYHM='{1}',JSSJ=to_date('{2}','yyyy/mm/dd hh24:mi:ss') where JLH='{3}'",
+                        js.ZTBJ,
+                        js.JIARYYHM,
+                        js.JSSJ,
+                        js.JLH);
+
+                    jsDal.Update(sql);
+                }
+            }
+            catch
+            {
+                throw new Exception("载入预加锁确认数据失败");
+            }
+        }
+        private JS YJSQRLoadJSEntity(string date)
+        {
+            JS js = new JS();
+            string[] strs = date.Split('|');
+            js.JLH = strs[0];
+            js.ZTBJ = strs[1];
+            js.JIARYYHM = strs[2];
+            js.JSSJ = strs[3];
+            return js;
+        }
+        #endregion
+
+        #region 取消
+        public void YJSQX(string msg)
+        {
+            try
+            {
+                string[] dates = msg.Split(';');
+                List<JS> jss = new List<JS>();
+
+                foreach (JS js in jss)
+                {
+                    //delete from FDSGLXT_JSJLB where jlh='100'
+                    string sql = string.Format("delete from FDSGLXT_JSJLB where jlh='{0}'", js.JLH);
+
+                    jsDal.Update(sql);
+                }
+            }
+            catch
+            {
+                throw new Exception("载入预加锁确认数据失败");
+            }
+        }
+        #endregion 
+
+        #region 补封(未完)
+        public void BF(string msg)
+        {
+            try
+            {
+                string[] dates = msg.Split(';');
+                List<JS> jss = new List<JS>();
+                foreach (string date in dates)
+                {
+                    JS js = BFLoadJSEntity(date);
+                    jss.Add(js);
+                }
+
+                foreach (JS js in jss)
+                {
+
+                    //update FDSGLXT_JSJLB set ZTBJ='2',JIARYYHM='BJP',JSSJ=to_date('2015/10/15 8:59:36','yyyy/mm/dd hh24:mi:ss') where JLH='100'
+
+                    string sql = string.Format("update FDSGLXT_JSJLB set SH='{0}',JIARYYHM='{1}',JSSJ=to_date('{2}','yyyy/mm/dd hh24:mi:ss') where JLH='{3}'",
+                        js.ZTBJ,
+                        js.JIARYYHM,
+                        js.JSSJ,
+                        js.JLH);
+
+                    jsDal.Update(sql);
+                }
+            }
+            catch
+            {
+                throw new Exception("载入预加锁确认数据失败");
+            }
+        }
+        private JS BFLoadJSEntity(string date)
+        {
+            JS js = new JS();
+            string[] strs = date.Split('|');
+            js.JLH = strs[0];
+            js.ZTBJ = strs[1];
+            js.JIARYYHM = strs[2];
+            js.JSSJ = strs[3];
+            return js;
+        }
+        #endregion
+        #region 拆锁
+        public void CS(string msg)
+        {
+            try
+            {
+                string[] dates = msg.Split(';');
+                List<JS> jss = new List<JS>();
+                foreach (string date in dates)
+                {
+                    JS js = CSLoadJSEntity(date);
+                    jss.Add(js);
+                }
+
+                foreach (JS js in jss)
+                {
+                    string sql = string.Format("update FDSGLXT_JSJLB set ZTBJ='{0}',JIERYYHM='{1}',CSSJ=to_date('{2}','yyyy/mm/dd hh24:mi:ss') where JLH='{3}'",
+                        js.ZTBJ,
+                        js.JIERYYHM,
+                        js.CSSJ,
+                        js.JLH);
+
+                    jsDal.Update(sql);
+                }
+            }
+            catch
+            {
+                throw new Exception("载入拆锁数据失败");
+            }
+        }
+        private JS CSLoadJSEntity(string date)
+        {
+            JS js = new JS();
+            string[] strs = date.Split('|');
+            js.JLH = strs[0];
+            js.ZTBJ = strs[1];
+            js.JIERYYHM = strs[2];
+            js.CSSJ = strs[3];
+            return js;
+        }
+        #endregion 
     }
 }

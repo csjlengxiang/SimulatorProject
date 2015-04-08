@@ -14,7 +14,7 @@ namespace BLL1
     {
         //后台服务开启后，单例模式，既然是单例其实可以上来先优化好...
         GJService gjService = new GJService();
-        JSService jsService = new JSService();
+        public JSService jsService = new JSService();
         JSLSService jslsService = new JSLSService();
         //CZRYService czryService = new CZRYService();
         //PSService psService = new PSService();
