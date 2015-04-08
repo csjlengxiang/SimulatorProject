@@ -172,7 +172,7 @@ namespace BLL1
                     //insert into FDSGLXT_JSJLB()
                     //insert into FDSGLXT_JSJLB t(JLH,QSCZID,ZDCZID,JIARYYHM,SH,SJH,CH,JSSJ,ZTBJ,YJSPCH,HQHYYID,SBBH) 
 //values('900','123456789012345678901234567890123456','123456789012345678901234567890123457','BJP','shh','sjhh','chh',to_date('2015/1/15 8:59:36','yyyy/mm/dd hh24:mi:ss'),'1','yjspchh','1','sbbbb');
-                    string sql = string.Format("insert into FDSGLXT_JSJLB t(JLH,QSCZID,ZDCZID,JIARYYHM,SH,SJH,CH,JSSJ,ZTBJ,YJSPCH,HQHYYID,SBBH) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',to_date('{7}','yyyy/mm/dd hh24:mi:ss'),'{8}','{9}','{10}','{11}')",
+                    string sql = string.Format("insert into FDSGLXT_JSJLB t(JLH,QSCZID,ZDCZID,JIARYYHM,SH,SJH,CH,JSSJ,ZTBJ,YJSPCH,HQHYYID,SBBH,CZID,HYZRID) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}',to_date('{7}','yyyy/mm/dd hh24:mi:ss'),'{8}','{9}','{10}','{11}','{12}','{13}')",
                         js.JLH,
                         js.QSCZID,
                         js.ZDCZID,
@@ -184,7 +184,9 @@ namespace BLL1
                         js.ZTBJ,
                         js.YJSPCH,
                         js.HQHYYID,
-                        js.SBBH
+                        js.SBBH,
+                        js.CZID,
+                        js.HYZRID
                         );
                     jsDal.Insert(sql);
                 }
@@ -211,6 +213,8 @@ namespace BLL1
             js.YJSPCH = strs[9];
             js.HQHYYID = strs[10];
             js.SBBH = strs[11];
+            js.CZID = "";
+            js.HYZRID = "";
             return js;
         }
         #endregion 
@@ -326,6 +330,7 @@ namespace BLL1
             return js;
         }
         #endregion
+
         #region 拆锁
         public void CS(string msg)
         {

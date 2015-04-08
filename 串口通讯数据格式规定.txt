@@ -8,13 +8,8 @@
 拆锁=5
 
 数据内容：
-预加锁：记录id，发站id，到站id，预加锁人id，锁号，sim卡号，车号，预加锁时间，预加锁状态，批次号，联系人，设备编号
+预加锁：记录id，发站id，到站id，预加锁人id，锁号，sim卡号，车号，预加锁时间，预加锁状态，批次号，联系人（后勤货运员ID），设备编号|||||||||||||||车长ID、货运主任ID
 确认：记录id，加锁状态，加锁人id，加锁时间
 取消：记录id
-补封：加锁表记录id，锁号，补封人id，补封时间，加锁状态           //缺设备编号...
+补封：加锁表记录id，锁号，补封人id(后勤货运员ID)，补封时间，加锁状态|||||||设备编号、SIM卡号      
 拆锁：加锁表记录id，拆锁状态，拆锁人id，拆锁时间
-
-
-
-update FDSGLXT_JSJLB set ZTBJ='2',JIARYYHM='BJP',JSSJ=to_date('2015/10/15 8:59:36','yyyy/mm/dd hh24:mi:ss') where JLH='100'
-select * from FDSGLXT_JSJLB t where jlh='100'
