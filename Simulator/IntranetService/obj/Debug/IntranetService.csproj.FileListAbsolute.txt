@@ -36,3 +36,5 @@ C:\Users\csj\Desktop\SimulatorProject\Simulator\IntranetService\obj\Debug\Intran
 C:\Users\csj\Desktop\SimulatorProject\Simulator\IntranetService\obj\Debug\IntranetService.pdb
 C:\Users\csj\Desktop\SimulatorProject\Simulator\IntranetService\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
 C:\Users\csj\Desktop\SimulatorProject\Simulator\IntranetService\bin\Debug\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll
+C:\Users\csj\Desktop\SimulatorProject\Simulator\IntranetService\obj\Debug\IntranetService.Properties.Resources.resources
+C:\Users\csj\Desktop\SimulatorProject\Simulator\IntranetService\obj\Debug\IntranetService.csproj.GenerateResource.Cache

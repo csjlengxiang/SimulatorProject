@@ -33,9 +33,10 @@ namespace DAL
     public class DbHelper
     {
         #region 从配置文件中获取数据库的连接字符串
-        //public static readonly String connectionString = @"Provider=MSDAORA.1;Persist Security Info=False;Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost) (PORT=1521)))(CONNECT_DATA=(SERVICE_NAME= orcl)));User Id=test2; Password=test2";
-        public static readonly String connectionString = @"Persist Security Info=False;Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1) (PORT=1521)))(CONNECT_DATA=(SERVICE_NAME= orcl)));User Id=test2; Password=test2";
-        //public static string connectionString = @"Provider=MSDAORA.1;User ID=test2;Password=test2;Data Source=dbserver;Persist Security Info=False";
+        //public static readonly String connectionString = @"Persist Security Info=False;Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1) (PORT=1521)))(CONNECT_DATA=(SERVICE_NAME= orcl)));User Id=test2; Password=test2";
+        
+        public static readonly String connectionString = @"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=ORCL)));User Id=test2;Password=test2"; 
+
         #endregion
 
         #region 私有方法

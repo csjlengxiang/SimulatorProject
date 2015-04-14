@@ -12,9 +12,12 @@ namespace IntranetService
         {
             //BLL.SPService spService = new BLL.SPService("com5", true);
             BLL.BackgroundService backgroundService = new BLL.BackgroundService("com5");
-            
-            Console.WriteLine("内网服务开启");
-            Console.ReadKey();
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("内网服务开启");
+                Console.ReadKey();
+            }
         }
     }
 }
