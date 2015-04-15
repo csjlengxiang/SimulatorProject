@@ -33,7 +33,10 @@ namespace BLL
             //测破锁
             psService.Insert("2012/12/12 12:00:00", "dwddid");
 #endif
-            udpService = new UdpService("127.0.0.1", "8000", null, null, (msg) => { serialPortService.Send(msg); }); //写个闭包看起来不错swift
+            udpService = new UdpService("127.0.0.1", "8000", null, null, (msg) => {
+                //Console.WriteLine(msg);
+                serialPortService.Send(msg); 
+            }); //写个闭包看起来不错swift
         }
 
         public void Oper(string sp = "")

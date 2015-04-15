@@ -29,26 +29,29 @@ namespace BLL
             ThreadPool.QueueUserWorkItem(new WaitCallback((m) =>
             {
                 IPEndPoint from = null;
-                while (true)
+                try
                 {
-                    try
+                    while (true)
                     {
-                        byte[] b = udp.Receive(ref from);
-                        string str = Encoding.UTF8.GetString(b, 0, b.Length);
+                        try
+                        {
+                            byte[] b = udp.Receive(ref from);
+                            string str = Encoding.UTF8.GetString(b, 0, b.Length);
 
-                        if (udpServiceRecive != null)
-                            udpServiceRecive(str);
+                            if (udpServiceRecive != null)
+                                udpServiceRecive(str);
 
-                        //Console.WriteLine(str);
+                            //Console.WriteLine(str);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                     }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-                    finally
-                    {
-                        udp.Close();
-                    }
+                }
+                catch (Exception e)
+                {
+                    udp.Close();
                 }
 
             }

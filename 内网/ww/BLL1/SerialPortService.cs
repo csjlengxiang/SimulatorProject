@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace BLL1
 {
     public delegate void csjSerialPortDataReceivedBuf(byte[] readBuffer);
     public delegate void csjSerialPortDataReceivedStr(string readStr);

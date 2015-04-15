@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BLL1
 {
-    class JSService
+    public class JSService
     {
         private JSDAL jsDal = new JSDAL();
 
@@ -304,11 +304,15 @@ namespace BLL1
                 {
 
                     //update FDSGLXT_JSJLB set ZTBJ='2',JIARYYHM='BJP',JSSJ=to_date('2015/10/15 8:59:36','yyyy/mm/dd hh24:mi:ss') where JLH='100'
-
-                    string sql = string.Format("update FDSGLXT_JSJLB set SH='{0}',JIARYYHM='{1}',JSSJ=to_date('{2}','yyyy/mm/dd hh24:mi:ss') where JLH='{3}'",
-                        js.ZTBJ,
+                    //补封：加锁表记录id，锁号，补封人id(本车站登陆账号)，补封时间，加锁状态|||||||设备编号、SIM卡号、后勤货运员ID（实际短信）
+                    string sql = string.Format("update FDSGLXT_JSJLB set SH='{0}',JIARYYHM='{1}',JSSJ=to_date('{2}','yyyy/mm/dd hh24:mi:ss',ZTBJ='{3}',SBBH='{4}',SJH='{5}',HQHYYID='{6}') where JLH='{7}'",
+                        js.SH,
                         js.JIARYYHM,
                         js.JSSJ,
+                        js.ZTBJ,
+                        js.SBBH,
+                        js.SJH,
+                        js.HQHYYID,
                         js.JLH);
 
                     jsDal.Update(sql);
