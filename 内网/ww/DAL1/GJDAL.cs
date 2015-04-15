@@ -22,6 +22,7 @@ namespace DAL1
                 throw e;
             }
         }
+   
         public List<GJ> Select(string sql)
         {
             try

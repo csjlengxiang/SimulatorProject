@@ -3,6 +3,7 @@ using DAL1;
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,47 +63,58 @@ namespace BLL1
         {
             try
             {
-                string sql, ret = "";
-                int num, prenum = 0;
-                List<GJ> gjs;
-#if hv
-                #region 先从新数据库搬移数据
-                sql = string.Format("select * from FDS_GJB_Rectify t where t.sbbh='{0}' and t.dwsj >= to_date('{1}','yyyy/mm/dd hh24:mi:ss') order by t.dwsj", sbbh, jssj);
-                gjs = gjDal.SelectRectify(sql);
-                num = gjs.Count;
-                ret = "";
+                List<GJ> gjs = GetGJS(sbbh, jssj);
+                int num = gjs.Count;
+                string ret = "";
                 for (int i = 0; i < num; i++)
                 {
                     GJ gj = gjs[i];
                     ret += gj.DWSJ + ',' + gj.JD + ',' + gj.WD;
                     if (i != num - 1) ret += ';';
                 }
-                prenum = num;
-                #endregion
-#endif
-                #region 再从旧的数据数据搬走了
-
-                sql = string.Format("select * from FDS_GJB t where t.sbbh='{0}' and t.dwsj >= to_date('{1}','yyyy/mm/dd hh24:mi:ss') order by t.dwsj", sbbh, jssj);
-                gjs = gjDal.Select(sql);
-                num = gjs.Count;
-
-                for (int i = 0; i < num; i++)
-                {
-                    GJ gj = gjs[i];
-                    string c = ";";
-                    if (i == 0 && prenum == 0)
-                        c = "";
-
-                    ret += c + gj.DWSJ + ',' + gj.JD + ',' + gj.WD;
-                }
-
-                #endregion
                 return ret;
             }
             catch (Exception e)
             {
                 throw e;
             }
+        }
+        public List <GJ> GetGJS(string sbbh, string jssj)
+        {
+            List<GJ> gjs;
+            string sql;
+            sql = string.Format("select * from FDS_GJB_Rectify t where t.sbbh='{0}' and t.dwsj >= to_date('{1}','yyyy/mm/dd hh24:mi:ss') order by t.dwsj", sbbh, jssj);
+            gjs = gjDal.SelectRectify(sql);
+            sql = string.Format("select * from FDS_GJB t where t.sbbh='{0}' and t.dwsj >= to_date('{1}','yyyy/mm/dd hh24:mi:ss') order by t.dwsj", sbbh, jssj);
+            gjs.AddRange(gjDal.Select(sql));
+            return gjs;
+        }
+        public DataTable GetTable(string sbbh, string jssj)
+        {
+            List<GJ> gjs = GetGJS(sbbh, jssj);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID", System.Type.GetType("System.String"));
+            dt.Columns.Add("DWSJ", System.Type.GetType("System.String"));
+            dt.Columns.Add("JD", System.Type.GetType("System.String"));
+            dt.Columns.Add("WD", System.Type.GetType("System.String"));
+            dt.Columns.Add("DWZT", System.Type.GetType("System.String"));
+            dt.Columns.Add("DWDD", System.Type.GetType("System.String"));
+            dt.Columns.Add("DY", System.Type.GetType("System.String"));
+            dt.Columns.Add("SBBH", System.Type.GetType("System.String"));
+            foreach (GJ gj in gjs)
+            {
+                DataRow dr = dt.NewRow();
+                dr["ID"] = gj.ID;
+                dr["DWSJ"] = gj.DWSJ;
+                dr["JD"] = gj.JD;
+                dr["WD"] = gj.WD;
+                dr["DWZT"] = gj.DWZT;
+                dr["DWDD"] = gj.DWDDID;
+                dr["DY"] = gj.DY;
+                dr["SBBH"] = gj.SBBH;
+                dt.Rows.Add(dr);
+            }
+            return dt;
         }
 
     }
