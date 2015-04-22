@@ -26,6 +26,13 @@ namespace BLL1
             //短信，调用短信接口
             //同步
             string[] strs = str.Split('$');
+            
+            if(strs.Length == 1)
+            {
+                LogService.Mess(strs[0]);
+                return;
+            }
+
             string type = strs[0];
             string ctx = strs[1];
             switch (type)

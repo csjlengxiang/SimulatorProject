@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL1
-{
+{ 
     public class JSService
     {
         private JSDAL jsDal = new JSDAL();
@@ -80,7 +80,7 @@ namespace BLL1
             if (gjState == GJ.js)
                 return JS.js;
             if (gjState == GJ.dw)
-                return JS.dw;
+                return JS.js;
             if (gjState == GJ.ps)
                 return JS.ps;
             return null;
@@ -118,8 +118,8 @@ namespace BLL1
                 }
                 #endregion
 
-                string sql = string.Format("update FDSGLXT_JSJLB set zxjd='{0}',zxwd='{1}',zxsj=to_date('{2}','yyyy/mm/dd hh24:mi:ss'),zxdd='{3}',ztbj='{4}',zxdy='{5}' where sbbh='{6}'",
-                    gj.JD, gj.WD, gj.DWSJ, gj.DWDDID, jsState, gj.DY, gj.SBBH);
+                string sql = string.Format("update FDSGLXT_JSJLB set zxjd='{0}',zxwd='{1}',zxsj=to_date('{2}','yyyy/mm/dd hh24:mi:ss'),zxdd='{3}',zxddid='{4}',ztbj='{5}',zxdy='{6}' where sbbh='{7}'",
+                    gj.JD, gj.WD, gj.DWSJ, gj.DWDD, gj.DWDDID, jsState, gj.DY, gj.SBBH);
 
                 jsDal.Update(sql);
 
@@ -128,7 +128,8 @@ namespace BLL1
                 js.ZXJD = gj.JD;
                 js.ZXWD = gj.WD;
                 js.ZXSJ = gj.DWSJ;
-                js.ZXDD = gj.DWDDID;
+                js.ZXDD = gj.DWDD;
+                js.ZXDDID = gj.DWDDID;
                 js.ZXDY = gj.DY;
             }
             catch (Exception e)
@@ -287,7 +288,7 @@ namespace BLL1
         }
         #endregion 
 
-        #region 补封(未完)
+        #region 补封
         public void BF(string msg)
         {
             try
@@ -328,9 +329,14 @@ namespace BLL1
             JS js = new JS();
             string[] strs = date.Split('|');
             js.JLH = strs[0];
-            js.ZTBJ = strs[1];
+            js.SH = strs[1];
             js.JIARYYHM = strs[2];
             js.JSSJ = strs[3];
+            js.ZTBJ = strs[4];
+            js.SBBH = strs[5];
+            js.SJH = strs[6];
+            js.HQHYYID = strs[7];
+            
             return js;
         }
         #endregion

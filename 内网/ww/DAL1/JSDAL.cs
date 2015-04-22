@@ -43,7 +43,7 @@ namespace DAL1
             js.ZTBJ = dr["ZTBJ"].ToString();
             js.CZID = dr["CZID"].ToString();
             js.HYZRID = dr["HYZRID"].ToString();
-            js.HQHYYID = dr["HQRYID"].ToString();
+            js.HQHYYID = dr["HQHYYID"].ToString();
             js.SBBH = dr["SBBH"].ToString();
             js.ZXJD = dr["ZXJD"].ToString();
             js.ZXWD = dr["ZXWD"].ToString();
@@ -51,6 +51,7 @@ namespace DAL1
             js.ZXSJ = dr["ZXSJ"].ToString();
             js.ZXDY = dr["ZXDY"].ToString();
             js.PM = dr["PM"].ToString();
+            js.ZXDDID = dr["ZXDDID"].ToString();
             return js;
         }
         public void Update(string sql)

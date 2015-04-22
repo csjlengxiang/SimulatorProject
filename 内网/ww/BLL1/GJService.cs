@@ -44,8 +44,8 @@ namespace BLL1
         {
             try
             {
-                string sql = string.Format("insert into FDS_GJB(ID,DWSJ,DWDD,JD,WD,DWZT,DY,SBBH) values('{0}',to_date('{1}','yyyy/mm/dd hh24:mi:ss'),'{2}','{3}','{4}','{5}','{6}','{7}')",
-                        gj.ID, gj.DWSJ, gj.DWDDID, gj.JD, gj.WD, gj.DWZT, gj.DY, gj.SBBH);
+                string sql = string.Format("insert into FDS_GJB(ID,DWSJ,DWDD,DWDDID,JD,WD,DWZT,DY,SBBH) values('{0}',to_date('{1}','yyyy/mm/dd hh24:mi:ss'),'{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
+                        gj.ID, gj.DWSJ, gj.DWDD, gj.DWDDID, gj.JD, gj.WD, gj.DWZT, gj.DY, gj.SBBH);
                 gjDal.Insert(sql);
             }
             catch (Exception e)
@@ -81,10 +81,12 @@ namespace BLL1
         }
         public List <GJ> GetGJS(string sbbh, string jssj)
         {
-            List<GJ> gjs;
+            List<GJ> gjs = new List<GJ>();
             string sql;
+#if hv
             sql = string.Format("select * from FDS_GJB_Rectify t where t.sbbh='{0}' and t.dwsj >= to_date('{1}','yyyy/mm/dd hh24:mi:ss') order by t.dwsj", sbbh, jssj);
             gjs = gjDal.SelectRectify(sql);
+#endif
             sql = string.Format("select * from FDS_GJB t where t.sbbh='{0}' and t.dwsj >= to_date('{1}','yyyy/mm/dd hh24:mi:ss') order by t.dwsj", sbbh, jssj);
             gjs.AddRange(gjDal.Select(sql));
             return gjs;
@@ -99,6 +101,7 @@ namespace BLL1
             dt.Columns.Add("WD", System.Type.GetType("System.String"));
             dt.Columns.Add("DWZT", System.Type.GetType("System.String"));
             dt.Columns.Add("DWDD", System.Type.GetType("System.String"));
+            dt.Columns.Add("DWDDID", System.Type.GetType("System.String"));
             dt.Columns.Add("DY", System.Type.GetType("System.String"));
             dt.Columns.Add("SBBH", System.Type.GetType("System.String"));
             foreach (GJ gj in gjs)
@@ -109,7 +112,8 @@ namespace BLL1
                 dr["JD"] = gj.JD;
                 dr["WD"] = gj.WD;
                 dr["DWZT"] = gj.DWZT;
-                dr["DWDD"] = gj.DWDDID;
+                dr["DWDD"] = gj.DWDD;
+                dr["DWDDID"] = gj.DWDD;
                 dr["DY"] = gj.DY;
                 dr["SBBH"] = gj.SBBH;
                 dt.Rows.Add(dr);

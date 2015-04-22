@@ -46,9 +46,10 @@ namespace DAL1
             gj.DWSJ = dr["DWSJ"].ToString();
             gj.JD = dr["JD"].ToString();
             gj.WD = dr["WD"].ToString();
-
+            
             gj.DWZT = dr["DWZT"].ToString();
-            gj.DWDDID = dr["DWDD"].ToString();
+            gj.DWDDID = dr["DWDDID"].ToString();
+            gj.DWDD = dr["DWDD"].ToString();
             gj.DY = dr["DY"].ToString();
             gj.SBBH = dr["SBBH"].ToString();
 
@@ -79,7 +80,9 @@ namespace DAL1
             gj.WD = dr["WDNEW"].ToString();
 
             gj.DWZT = dr["DWZT"].ToString();
-            gj.DWDDID = dr["DWDD"].ToString();
+
+            gj.DWDDID = dr["DWDDID"].ToString();
+            gj.DWDD = dr["DWDD"].ToString();
             gj.DY = dr["DY"].ToString();
             gj.SBBH = dr["SBBH"].ToString();
 

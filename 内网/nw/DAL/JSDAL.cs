@@ -42,7 +42,7 @@ namespace DAL
             js.ZTBJ = dr["ZTBJ"].ToString();
             js.CZID = dr["CZID"].ToString();
             js.HYZRID = dr["HYZRID"].ToString();
-            js.HQHYYID = dr["HQRYID"].ToString();
+            js.HQHYYID = dr["HQHYYID"].ToString();
             js.SBBH = dr["SBBH"].ToString();
             js.ZXJD = dr["ZXJD"].ToString();
             js.ZXWD = dr["ZXWD"].ToString();

@@ -8,11 +8,19 @@ namespace Model
 {
     public class JS
     {
+        #region 管理平台标记状态
+        //管理平台
         public const string yjs = "0";
+        //管理平台
         public const string js = "1";
-        public const string dw = "2";
-        public const string ps = "3";
-        public const string cs = "4";
+        //系统拆锁
+        public const string cs = "3";
+        //破锁
+        public const string ps = "2";
+        #endregion
+
+        public const string dw = "4";
+   
         public const string xh = "5";
 
         public string JLH { get; set; }

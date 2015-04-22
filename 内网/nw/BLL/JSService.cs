@@ -79,7 +79,7 @@ namespace BLL
             if (gjState == GJ.js)
                 return JS.js;
             if (gjState == GJ.dw)
-                return JS.dw;
+                return JS.js;
             if (gjState == GJ.ps)
                 return JS.ps;
             return null;

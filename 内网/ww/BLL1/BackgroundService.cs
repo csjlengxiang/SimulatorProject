@@ -22,6 +22,9 @@ namespace BLL1
         //DXService dxService = new DXService();
         public BackgroundService()
         {
+#if debug
+            Oper();
+#endif
         }
         public void Oper(string sp = "")
         {
@@ -32,21 +35,25 @@ namespace BLL1
             gj.JD = "100";
             gj.WD = "100";
             gj.ID = Guid.NewGuid().ToString();
-            gj.SBBH = "sbbh";
+            gj.SBBH = "test";
             gj.DWSJ = DateTime.Now.ToString();
-            gj.DWZT = GJ.gjState.j.ToString();
+            gj.DWZT = GJ.ps;
             gj.DY = "dy";
 #else
                 GJ gj = gjService.LoadGJ(sp);
 #endif
                 //插入解析数据于数据库
-                gj.DWDDID = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD));
+                string stmp="";
+                gj.DWDDID = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD), ref stmp);
+                gj.DWDD = stmp;
+                
                 gjService.Insert(gj);
 
                 //根据轨迹点更新加锁表. 注意：加锁表需要存在
                 JS js = null;
                 string preZTBJ = null;
 #if debug
+                jsService.UpdateByGJAndGetJS2(gj, ref preZTBJ, ref js);
 #else
                 jsService.UpdateByGJAndGetJS2(gj, ref preZTBJ, ref js);
 #endif

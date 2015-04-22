@@ -23,7 +23,7 @@ namespace BLL1
         {
             try
             {
-                string sql = string.Format("insert into FDSGLXT_JSJLLSB t(JLH,QSCZID,ZDCZID,JIARYYHM,JIERYYHM,SH,SJH,CH,JSSJ,CSSJ,HPH,LSGJ,SBBH,HQRYID,ZTBJ,HYZRID,HQHYYID,PM,YJSPCH) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',to_date('{8}','yyyy/mm/dd hh24:mi:ss'),to_date('{9}','yyyy/mm/dd hh24:mi:ss'),'{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}')",
+                string sql = string.Format("insert into FDSGLXT_JSJLLSB t(JLH,QSCZID,ZDCZID,JIARYYHM,JIERYYHM,SH,SJH,CH,JSSJ,CSSJ,HPH,LSGJ,SBBH,CZID,ZTBJ,HYZRID,HQHYYID,PM,YJSPCH) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',to_date('{8}','yyyy/mm/dd hh24:mi:ss'),to_date('{9}','yyyy/mm/dd hh24:mi:ss'),'{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}')",
                         Guid.NewGuid().ToString(),
                         js.QSCZID,
                         js.ZDCZID,
@@ -37,7 +37,7 @@ namespace BLL1
                         js.HPH,
                         gjStr,  //历史轨迹...
                         js.SBBH,
-                        js.HQHYYID,
+                        js.CZID,
                         js.ZTBJ,
                         js.HYZRID,
                         js.HQHYYID,

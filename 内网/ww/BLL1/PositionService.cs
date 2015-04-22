@@ -90,7 +90,7 @@ namespace BLL1
             //MessageBox.Show(cnt.ToString());
 
         }
-        public string GetNear(double j, double w)
+        public string GetNear(double j, double w, ref string stationName)
         {
             double dis = Double.MaxValue;
             string near = "";
@@ -101,6 +101,7 @@ namespace BLL1
                 {
                     dis = d;
                     near = stations[i].ID;
+                    stationName = stations[i].Name;
                     //return near;
                 }
             }
