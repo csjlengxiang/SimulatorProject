@@ -49,6 +49,8 @@ namespace Model
         public string ZXDY { get; set; }
         public string ZXDD { get; set; }
 
+        public string ZXDDID { get; set; }
+
         public string ZXSJ { get; set; }
         public string PM { get; set; }
 

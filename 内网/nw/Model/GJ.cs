@@ -18,6 +18,7 @@ namespace Model
         public string WD { get; set; }
         public string DWZT { get; set; }
         public string DWDDID { get; set; }
+        public string DWDD { get; set; }
         public string DY { get; set; }
         public string SBBH { get; set; }
     }

@@ -113,7 +113,7 @@ namespace BLL1
                 dr["WD"] = gj.WD;
                 dr["DWZT"] = gj.DWZT;
                 dr["DWDD"] = gj.DWDD;
-                dr["DWDDID"] = gj.DWDD;
+                dr["DWDDID"] = gj.DWDDID;
                 dr["DY"] = gj.DY;
                 dr["SBBH"] = gj.SBBH;
                 dt.Rows.Add(dr);

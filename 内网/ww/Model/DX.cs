@@ -11,10 +11,10 @@ namespace Model
         public const string js = "1";
         public const string ps = "2";
 
-        public string ID { get; set; }
-        public string JSRID { get; set; }
-        public string FSSJ { get; set; }
-        public string FSNR { get; set; }
-        public string FSLX { get; set; }
+        //public string ID { get; set; }
+        //public string JSRID { get; set; }
+        //public string FSSJ { get; set; }
+        //public string FSNR { get; set; }
+        //public string FSLX { get; set; }
     }
 }

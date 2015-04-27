@@ -42,8 +42,8 @@ namespace BLL
         {
             try
             {
-                string sql = string.Format("insert into FDS_GJB(ID,DWSJ,DWDD,JD,WD,DWZT,DY,SBBH) values('{0}',to_date('{1}','yyyy/mm/dd hh24:mi:ss'),'{2}','{3}','{4}','{5}','{6}','{7}')",
-                        gj.ID, gj.DWSJ, gj.DWDDID, gj.JD, gj.WD, gj.DWZT, gj.DY, gj.SBBH);
+                string sql = string.Format("insert into FDS_GJB(ID,DWSJ,DWDD,DWDDID,JD,WD,DWZT,DY,SBBH) values('{0}',to_date('{1}','yyyy/mm/dd hh24:mi:ss'),'{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
+                        gj.ID, gj.DWSJ, gj.DWDD, gj.DWDDID, gj.JD, gj.WD, gj.DWZT, gj.DY, gj.SBBH);
                 gjDal.Insert(sql);
             }
             catch (Exception e)

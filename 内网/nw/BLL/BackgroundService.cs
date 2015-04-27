@@ -56,8 +56,10 @@ namespace BLL
                 GJ gj = gjService.LoadGJ(sp);
 #endif
                 //插入解析数据于数据库
-                gj.DWDDID = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD));
-                gjService.Insert(gj);
+                string stmp = "";
+                gj.DWDDID = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD), ref stmp);
+                gj.DWDD = stmp;
+
 
                 //根据轨迹点更新加锁表. 注意：加锁表需要存在
                 JS js = null;

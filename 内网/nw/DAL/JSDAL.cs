@@ -50,6 +50,7 @@ namespace DAL
             js.ZXSJ = dr["ZXSJ"].ToString();
             js.ZXDY = dr["ZXDY"].ToString();
             js.PM = dr["PM"].ToString();
+            js.ZXDDID = dr["ZXDDID"].ToString();
             return js;
         }
         public void Update(string sql)
