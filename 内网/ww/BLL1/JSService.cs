@@ -271,12 +271,11 @@ namespace BLL1
             try
             {
                 string[] dates = msg.Split(';');
-                List<JS> jss = new List<JS>();
 
-                foreach (JS js in jss)
+                foreach (string str in dates)
                 {
                     //delete from FDSGLXT_JSJLB where jlh='100'
-                    string sql = string.Format("delete from FDSGLXT_JSJLB where jlh='{0}'", js.JLH);
+                    string sql = string.Format("delete from FDSGLXT_JSJLB where jlh='{0}'", str);
 
                     jsDal.Update(sql);
                 }
@@ -306,7 +305,7 @@ namespace BLL1
 
                     //update FDSGLXT_JSJLB set ZTBJ='2',JIARYYHM='BJP',JSSJ=to_date('2015/10/15 8:59:36','yyyy/mm/dd hh24:mi:ss') where JLH='100'
                     //补封：加锁表记录id，锁号，补封人id(本车站登陆账号)，补封时间，加锁状态|||||||设备编号、SIM卡号、后勤货运员ID（实际短信）
-                    string sql = string.Format("update FDSGLXT_JSJLB set SH='{0}',JIARYYHM='{1}',JSSJ=to_date('{2}','yyyy/mm/dd hh24:mi:ss',ZTBJ='{3}',SBBH='{4}',SJH='{5}',HQHYYID='{6}') where JLH='{7}'",
+                    string sql = string.Format("update FDSGLXT_JSJLB set SH='{0}',JIARYYHM='{1}',JSSJ=to_date('{2}','yyyy/mm/dd hh24:mi:ss'),ZTBJ='{3}',SBBH='{4}',SJH='{5}',HQHYYID='{6}' where JLH='{7}'",
                         js.SH,
                         js.JIARYYHM,
                         js.JSSJ,

@@ -25,41 +25,49 @@ namespace BLL1
         {
             //短信，调用短信接口
             //同步
-            string[] strs = str.Split('$');
-            
-            if(strs.Length == 1)
+            try
             {
-                LogService.Mess(strs[0]);
-                return;
+                string[] strs = str.Split('$');
+
+                if (strs.Length == 1)
+                {
+                    LogService.Mess(strs[0]);
+                    return;
+                }
+
+                string type = strs[0];
+                string ctx = strs[1];
+                switch (type)
+                {
+                    case "1":
+                        backgroundService.jsService.YJS(ctx);
+                        break;
+                    case "2":
+                        backgroundService.jsService.YJSQR(ctx);
+                        break;
+                    case "3":
+                        backgroundService.jsService.YJSQX(ctx);
+                        break;
+                    case "4":
+                        backgroundService.jsService.BF(ctx);
+                        break;
+                    case "5":
+                        backgroundService.jsService.CS(ctx);
+                        break;
+                    case "6":
+                        /////////////短信////////////
+
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                LogService.Mess(e.Message, @"c:\dxservice");
             }
 
-            string type = strs[0];
-            string ctx = strs[1];
-            switch (type)
-            {
-                case "1":
-                    backgroundService.jsService.YJS(ctx);
-                    break;
-                case "2":
-                    backgroundService.jsService.YJSQR(ctx);
-                    break;
-                case "3":
-                    backgroundService.jsService.YJSQX(ctx);
-                    break;
-                case "4":
-                    backgroundService.jsService.BF(ctx);
-                    break;
-                case "5":
-                    backgroundService.jsService.CS(ctx);
-                    break;
-                case "6":
-                    /////////////短信////////////
-                    
-                    break;
-
-                default:
-                    break;
-            }
         }
     }
 }
