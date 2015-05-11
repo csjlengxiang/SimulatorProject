@@ -45,6 +45,10 @@ namespace BLL
                 string sql = string.Format("insert into FDS_GJB(ID,DWSJ,DWDD,DWDDID,JD,WD,DWZT,DY,SBBH) values('{0}',to_date('{1}','yyyy/mm/dd hh24:mi:ss'),'{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
                         gj.ID, gj.DWSJ, gj.DWDD, gj.DWDDID, gj.JD, gj.WD, gj.DWZT, gj.DY, gj.SBBH);
                 gjDal.Insert(sql);
+
+                sql = string.Format("insert into FDS_GJB_BACKUP(ID,DWSJ,DWDD,DWDDID,JD,WD,DWZT,DY,SBBH) values('{0}',to_date('{1}','yyyy/mm/dd hh24:mi:ss'),'{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
+                        gj.ID, gj.DWSJ, gj.DWDD, gj.DWDDID, gj.JD, gj.WD, gj.DWZT, gj.DY, gj.SBBH);
+                gjDal.Insert(sql);
             }
             catch (Exception e)
             {
@@ -61,7 +65,7 @@ namespace BLL
         {
             try
             {
-                string sql = string.Format("select * from FDS_GJB t where t.sbbh='{0}' and t.dwsj >= to_date('{1}','yyyy/mm/dd hh24:mi:ss') order by t.dwsj", sbbh, jssj);
+                string sql = string.Format("select * from FDS_GJB_BACKUP t where t.sbbh='{0}' and t.dwsj >= to_date('{1}','yyyy/mm/dd hh24:mi:ss') order by t.dwsj", sbbh, jssj);
                 List<GJ> gjs = gjDal.Select(sql);
                 int num = gjs.Count;
                 string ret = "";

@@ -34,35 +34,45 @@ namespace UdpService
 
                 sendHost = new IPEndPoint(IPAddress.Parse(sendIP), Convert.ToInt32(sendPort));
 
-                ThreadPool.QueueUserWorkItem(new WaitCallback((m) =>
+                Thread t = new Thread(() =>
                 {
-                    IPEndPoint from = null;
-                    while (true)
+                    try
                     {
-                        try
+                        IPEndPoint from = null;
+                        while (true)
                         {
-                            byte[] b = udp.Receive(ref from);
-                            string str = Encoding.UTF8.GetString(b, 0, b.Length);
-
-                            if (udpServiceRecive != null)
-                                udpServiceRecive(str);
-
-                            //Console.WriteLine(str);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
+                            try
+                            {
+                                byte[] b = udp.Receive(ref from);
+                                string str = Encoding.UTF8.GetString(b, 0, b.Length);
+                                if (udpServiceRecive != null)
+                                    udpServiceRecive(str);
+                                //Console.WriteLine(str);
+                            }
+                            catch (Exception e)
+                            {
+                                //Console.WriteLine(e.Message);
+                            }
                         }
                     }
-                }
-                ));
+                    catch
+                    {
+                        //LogService.Mess("前台关闭");
+                    }
+                    finally
+                    {
+                        udp.Close();
+                    }
+                });
+                t.IsBackground = true;
+                t.Start();
             }
             if (isSend)
             {
                 byte[] _b = Encoding.UTF8.GetBytes(msg);
                 udp.Send(_b, _b.Length, sendHost);
             }
-             
+
         }
 
     }

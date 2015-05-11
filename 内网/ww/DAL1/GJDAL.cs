@@ -22,7 +22,20 @@ namespace DAL1
                 throw e;
             }
         }
-   
+
+        public DataTable SelectDT(string sql)
+        {
+            try
+            {
+                List<GJ> gjs = new List<GJ>();
+                DataSet ds = DbHelper.Query(sql);
+                return ds.Tables[0];
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         public List<GJ> Select(string sql)
         {
             try
