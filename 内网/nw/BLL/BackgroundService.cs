@@ -59,7 +59,7 @@ namespace BLL
                 string stmp = "";
                 gj.DWDDID = positionService.GetNear(Convert.ToDouble(gj.JD), Convert.ToDouble(gj.WD), ref stmp);
                 gj.DWDD = stmp;
-
+                gjService.Insert(gj);
 
                 //根据轨迹点更新加锁表. 注意：加锁表需要存在
                 JS js = null;
@@ -77,8 +77,10 @@ namespace BLL
                     string sjh = czryService.GetSJHFromID(js.HQHYYID);
                     string sh = js.SH;
                     string ch = js.CH;
-                    string str = sjh + " " + sh + " " + ch + " 加锁";
+                    string str = sjh + " " + sh + " " + ch + " j";
+                    str = "6$" + str;
                     LogService.Mess(str, @"c:\IntranetService");
+                    
                     dxService.Insert(js.HQHYYID, gj.DWSJ, str, DX.js);
                     serialPortService.Send(str);
                 }
@@ -90,8 +92,10 @@ namespace BLL
                     try
                     {
                         string sjh1 = czryService.GetSJHFromID(js.CZID);
-                        string str = sjh1 + " " + sh + " " + ch + " 破锁";
+                        string str = sjh1 + " " + sh + " " + ch + " p";
+                        str = "6$" + str;
                         serialPortService.Send(str);
+                        
                         LogService.Mess(str, @"c:\IntranetService");
                         dxService.Insert(js.CZID, gj.DWSJ, str, DX.ps);
                     }
@@ -102,9 +106,10 @@ namespace BLL
                     try
                     {
                         string sjh2 = czryService.GetSJHFromID(js.HYZRID);
-                        string str = sjh2 + " " + sh + " " + ch + " 破锁";
-                        serialPortService.Send(str);
-                        dxService.Insert(js.CZID, gj.DWSJ, str, DX.ps);
+                        string str = sjh2 + " " + sh + " " + ch + " p";
+                        str = "6$" + str;
+                        serialPortService.Send(str); 
+                        
                         LogService.Mess(str, @"c:\IntranetService");
                         dxService.Insert(js.HYZRID, gj.DWSJ, str, DX.ps);
                     }
@@ -123,7 +128,7 @@ namespace BLL
 
                     //将破锁信息存储...补封操作更新新锁号信息，状态标记为加锁
 
-                    psService.Insert(gj.DWSJ, gj.DWDDID, gj.SBBH);
+                    psService.Insert(gj.DWSJ, gj.DWDDID, gj.SBBH, gj.JD, gj.WD);
 
                 }
                 //确认拆锁

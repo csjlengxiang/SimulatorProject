@@ -10,6 +10,8 @@ namespace BLL1
     {
         csjSerialPort mySerialPort;
         BackgroundService backgroundService;
+
+        SendService sendService = new SendService();
         public InternetService(string com)
         {
             mySerialPort = new csjSerialPort(Oper, com);
@@ -29,11 +31,7 @@ namespace BLL1
             {
                 string[] strs = str.Split('$');
 
-                if (strs.Length == 1)
-                {
-                    LogService.Mess(strs[0]);
-                    return;
-                }
+
 
                 string type = strs[0];
                 string ctx = strs[1];
@@ -56,7 +54,25 @@ namespace BLL1
                         break;
                     case "6":
                         /////////////短信////////////
+                        string[] datas = ctx.Split(' ');
+                        string sjh = datas[0];
+                        string sh = datas[1];
+                        string ch = datas[2];
+                        string ty = datas[3];
 
+                        string ct = "";
+                        if (ty == "j")
+                        {
+                            ct = "锁[" + sh + "]在[" + ch + "]加锁成功";
+
+                        }
+                        else
+                        {
+                            ct = "锁[" + sh + "]在[" + ch + "]异常破锁";
+
+                        }
+                        //ct = System.DateTime.Now.ToShortDateString() + ":" + ct;
+                        sendService.sendOnce(sjh, ct);
                         break;
 
                     default:

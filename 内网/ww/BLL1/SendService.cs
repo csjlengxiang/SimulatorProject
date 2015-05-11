@@ -28,10 +28,10 @@ namespace BLL1
         //通道组ID: 52
 
         // 接口帐号, 请换成你的帐号, 格式为 1001@+8位登录帐号+0001
-        private static readonly string ACCOUNT = "1001@501117410001";
+        private static readonly string ACCOUNT = "1001@501126410001";
 
         // 接口密钥, 请换成你的帐号对应的接口密钥
-        private static readonly string AUTHKEY = "0C5FBEC8E978E60C3791D093A1F34B08";
+        private static readonly string AUTHKEY = "A3E5441A0F737A7620C470EF280367A8";
 
         // 通道组编号, 请换成你的帐号可以使用的通道组编号
         private static readonly uint CGID = 52;
